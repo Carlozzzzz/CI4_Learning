@@ -271,9 +271,10 @@ class Userfile extends BaseController
     {
         if(session()->has('ci4_username'))
         {
+
             $xarr_param = array();
             $xarr_param['isactive'] = 1;
-            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
+            $data['data_datatablefile1'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             return view('reports/usertcpdf', $data);
         }
         else
