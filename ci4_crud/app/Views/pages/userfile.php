@@ -24,7 +24,7 @@
                                 <h6>Action</h6>
                             </li>
                             <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/addnew" role="button" onclick="$.blockUI();"><i class="bi bi-plus-lg"></i> Add new</a></li>
-                            <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/viewlistpdf" role="button" ><i class="bi bi-plus-lg"></i> tcpdf</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/viewlistpdf" target="_blank" ><i class="bi bi-plus-lg"></i> tcpdf</a></li>
                             <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/viewlistdompdf" target="_blank" ><i class="bi bi-plus-lg"></i> dompdf</a></li>
                             <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/insert" target="_blank" role="button" ><i class="bi bi-plus-lg"></i> Insert</a></li> -->
                             <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/update/5" role="button" ><i class="bi bi-plus-lg"></i> update</a></li> -->
