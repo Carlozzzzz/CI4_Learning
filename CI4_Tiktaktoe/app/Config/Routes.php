@@ -28,7 +28,7 @@ $routes->setAutoRoute(true);
  */
 
 // We get a performance increase by specifying the default
-// route since we don't have to scan directories.~
+// route since we don't have to scan directories.
 $routes->get('/', 'DefaultCI::index');
 $routes->get('/dashboard', 'DefaultCI::index');
 
