@@ -2,11 +2,11 @@
 
 ## What is [Login System](http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/)?
 
-[Login System](http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/){:target="_blank"} is a
+[Login System](http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/)is a
 simple login system that I will use in my future projects
 
 This repository is build using Code
-[Codeigniter 4](https://github.com/codeigniter4/CodeIgniter4){:target="_blank"}.
+[Codeigniter 4](https://github.com/codeigniter4/CodeIgniter4).
 
 
 ## Functions
