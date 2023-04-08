@@ -1,8 +1,8 @@
 # CI4_Quizzsheet
 
-## What is [Quizzsheet] (http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/)?
+## What is [Quizzsheet](http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/)?
 
-
+[Quizzsheet](http://localhost/development/practice/CI4_Learning/CI4_Quiz/public/)
 Simple project that can be used for simple quiz like, but now I am planning to only add Multiple choice here and update it later.
 
 This repository is build using Code
