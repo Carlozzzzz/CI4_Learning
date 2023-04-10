@@ -57,7 +57,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" onclick="signout_dialog();"
+                            <a class="dropdown-item d-flex align-items-
+                            " onclick="signout_dialog();"
                                 style="cursor-pointer;">
                                 <i class="bi bi-arrow-left"></i>
                                 <span>Logo out</span>
@@ -86,11 +87,13 @@
                 </a>
             </li>
 
-            <?php 
-                $xactive = "";
+
+            <?php
                 $xcollapsed = "collapsed";
                 $xshow = "";
-                if($data_activepage == "userfile")
+                $xactive = "";
+
+                if($data_activepage == "subjectfile" || $data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile") 
                 {
                     $xcollapsed = "";
                     $xshow = "show";
@@ -98,13 +101,60 @@
                 }
             ?>
             <li class="nav-item">
-                <a class="nav-link <?= $xcollapsed;?>" data-bs-target="#admission-nav" data-bs-toggle="collapse"
+                <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#program-nav" data-bs-toggle="collapse" 
                     href="#">
-                    <i class="bi bi-box-arrow-in-right"></i><span>Accounts</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-pencil-fill"></i></i><span>Academics</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="admission-nav" class="nav-content collapse <?= $xshow;?>" data-bs-parent="#sidebar-nav">
-                    <?php 
+                <ul id="program-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+                    <?php
+                        $xactive = "";
+                        if($data_activepage == "subjectfile")
+                        {
+                            $xactive = "class=\"active\"";
+                        }
+                    ?>
+                    <li>
+                        <a href="<?= base_url() ?>subjectfile" <?= $xactive?>>
+                            <i class="bi bi-circle"></i><span>Subjects</span>
+                        </a>
+                    </li>
+
+                    <?php
+                        $xactive = "";
+                        if($data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile")
+                        {
+                            $xactive = "class=\"active\"";
+                        }
+                    ?>
+                    <li>
+                        <a href="<?= base_url() ?>assignsubjectfile" <?= $xactive?>>
+                            <i class="bi bi-circle"></i><span>Assign Subjects</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <?php
+                $xcollapsed = "collapsed";
+                $xshow = "";
+                $xactive = "";
+
+                if($data_activepage == "userfile" || $data_activepage == "teacherfile" || $data_activepage == "studentfile")
+                {
+                    $xcollapsed = "";
+                    $xshow = "show";
+                    $xactive = "active";
+                }
+            ?>
+            <li class="nav-item">
+                <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#userfile-nav" data-bs-toggle="collapse" 
+                    href="#">
+                    <i class="bi bi-file-earmark-text" style="font-size: 1.2em;"></i><span>Accounts</span>
+                    <i class="bi bi-chevron-down ms-auto" style="font-size: 1.2em;"></i>
+                </a>
+                <ul id="userfile-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+                    <?php
                         $xactive = "";
                         if($data_activepage == "userfile")
                         {
@@ -112,18 +162,40 @@
                         }
                     ?>
                     <li>
-                        <a href="<?= base_url();?>userfile" onclick="$.blockUI();" <?= $xactive;?>>
-                            <i class="bi bi-circle"></i><span>User List</span>
+                        <a href="<?= base_url() ?>userfile" <?= $xactive?>>
+                            <i class="bi bi-circle"></i><span>Users</span>
                         </a>
                     </li>
+                    <?php
+                        $xactive = "";
+                        if($data_activepage == "studentfile")
+                        {
+                            $xactive = "class=\"active\"";
+                        }
+                    ?>
+                    <li>
+                        <a href="<?= base_url() ?>studentfile" <?= $xactive?>>
+                            <i class="bi bi-circle"></i><span>Students</span>
+                        </a>
+                    </li>
+                    <?php
+                        $xactive = "";
+                        if($data_activepage == "teacherfile")
+                        {
+                            $xactive = "class=\"active\"";
+                        }
+                    ?>
+                    <li>
+                        <a href="<?= base_url() ?>teacherfile" <?= $xactive?>>
+                            <i class="bi bi-circle"></i><span>Teachers</span>
+                        </a>
+                    </li>
+                    
                 </ul>
-
             </li>
 
+            
         </ul>
-
-
-
     </aside>
     <main id="main" class="main">
         <?= $this->renderSection('content') ?>
@@ -202,7 +274,45 @@
 
     });
 
+    function changeselect(obj) {
+        $.blockUI();
+        if(checkhassession())
+        {
+            var xdata = "";
+            if (jQuery(obj).hasClass("teacher") == true) {
+                xdata += "&selecttype=teacher";
+                xdata += "&teacherid=" + jQuery(obj).val();
+            }
 
+            xdata += "&showsubject=<?= $data_activepage == "studentsubjectlistfile" ? "yes" : "no"; ?>";
+
+            jQuery.ajax({
+                url: "<?= base_url();?>/DefaultCI/changeselect",
+                method: "POST",
+                data: xdata,
+                dataType: "JSON",
+                success: function(xret) {
+                    $.unblockUI();
+                    if (xret.bool) {
+                        if (jQuery(obj).hasClass("teacher") == true) {
+                            jQuery("#div_subject").empty();
+                            jQuery("#div_subject").html(xret.obj);
+                        }
+                    } else if (xret.bool == false) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: xret.msg,
+                            allowOutsideClick: false
+                        });
+                    }
+                },
+            });
+        }
+        else
+        {
+            window.location.href = "<?= base_url()?>template/errorpage";
+        }
+    }
     function checkenter() {
         $("input").keydown(function(e) {
             if (e.keyCode == 13) {

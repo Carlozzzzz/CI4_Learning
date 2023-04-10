@@ -62,7 +62,50 @@ class DefaultCI_Model extends Model
         {
             $xmfid = $xrow[0][$mfid];
         }
+        // $lastQuery = $this->db->getLastQuery();
+        // echo $lastQuery;
+        // var_dump($xmfid);
+        // die();
        
+        return $xmfid;
+    }
+
+    public function generate_username($columnid, $table) {
+
+        $xqry = "SELECT LPAD((SUBSTRING({$columnid}, 6, 4) + 1), 4, 0) AS {$columnid} FROM {$table} WHERE year(created_at) = year(curdate()) ORDER BY recid DESC LIMIT 1";
+        $xstm = $this->db->query($xqry);
+        $xrow = $xstm->getResultArray();
+
+        if($columnid == "studentid")
+        {
+            $xmfid = date("y")."-S-0001";
+        }
+        else if($columnid == "teacherid")
+        {
+            $xmfid = date("y")."-T-0001";
+        }
+
+        if(count($xrow)>0)
+        {
+            if($columnid == "studentid")
+            {
+                $xmfid = date("y")."-S-{$xrow[0][$columnid]}";
+            }
+            else if($columnid == "teacherid")
+            {
+                $xmfid = date("y")."-T-{$xrow[0][$columnid]}";
+            }
+        }
+
+        $lastQuery = $this->db->getLastQuery();
+        
+        // echo $lastQuery;
+        // echo "<pre>";
+        // var_dump($xmfid);
+        // var_dump($columnid);
+        // var_dump($table);
+        // die();
+
         return $xmfid;
     }
 
@@ -73,8 +116,8 @@ class DefaultCI_Model extends Model
         $xpassword = str_replace(" ", "", $lastname);
         $xpassword = strtolower($xpassword);
         $xpassword = $xpassword.$key;
-        // return $this->encode_url($xpassword);
-        return $xpassword;
+        return $this->encode_url($xpassword);
+        // return $xpassword;
     }
 
     public function encode_url($string, $key = "", $url_safe = TRUE) 
