@@ -19,18 +19,29 @@ class DefaultCI extends BaseController
         $this->db = \Config\Database::connect(); // get database connection
         $this->session = \Config\Services::session();
         $this->ModelClass = new DefaultCI_Model();
-        $this->UserFile_Model = new UserFile_Model();
+        $this->UserFile_Model = new UserFile_Model(); 
+        $this->TeachersubjectlistFile_Model = model('TeachersubjectlistFile_Model');
+        $this->SubjectFile_Model = model('SubjectFile_Model');
     }
 
     public function index($isactive = 1){
+        
+            $page = "index";
+            if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
+                // Whoops, we don't have a page for that!
+                return view ('template/errorfile');
+            }
+            if(session()->has('ci4_username'))
+            {
+                $data['data_activepage']= 'dashboard';
+                return view('pages/dashboard', $data);
+            }
+            else
+            {
+                $data['data_activepage']= 'index';
+                return view ('index');
 
-        $page = "index";
-        if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
-            // Whoops, we don't have a page for that!
-            return view ('template/errorfile');
-        }
-        $data['data_activepage']= 'index';
-        return view ('index');
+            }
     }
 
     public function dashboard($page = "dashboard"){
@@ -43,12 +54,80 @@ class DefaultCI extends BaseController
         return view('pages/dashboard', $data);
     }
 
-    public function submitsigninuser(){
-        $postdata = $this->request->getPost();
+    public function changeselect() {
+        $xpostdata = $this->request->getPost();
+        
+        // echo "<pre>";
+        // var_dump($xpostdata);
+        // die();
+
+        $xretobj = array();
+
+        $xarr_params = array();
+        $xdata = array();
+        $xissec = 0;
+        $xissub = 0;
+
+        if(isset($xpostdata['selecttype']) && $xpostdata['selecttype'] == "teacher")
+        {
+            if(isset($xpostdata['showsubject']) && $xpostdata['showsubject'] != "no")
+            {
+                $xarr_params['teacherid'] = $this->ModelClass->decode_url($xpostdata['teacherid']);
+                $xdata = $this->SubjectFile_Model->go_fetch_file1_data($xarr_params);
+            }
+
+        }
 
         // echo "<pre>";
-        // var_dump($postdata);
+        // var_dump($xarr_params['teacherid']);
+        // var_dump($xdata);
         // die();
+        $xretobj['bool'] = TRUE;
+        $xobj = "";
+        $test = 0;
+
+        if(count($xdata) > 0)
+        {
+            if(isset($xpostdata['selecttype']) && $xpostdata['selecttype'] == "teacher")
+            {
+               
+                if(isset($xpostdata['showsubject']) && $xpostdata['showsubject'] == "yes")
+                {
+                    $xobj .= "<div class=\"form-floating\">";
+                        $xobj .= "<select name=\"txtfld[subjectid]\" id=\"txtsubjectid\" class=\"form-control form-control-sm\" placeholder=\"Subject\" required>";
+                            $xobj .= "<option value=\"\">Select here...</option>";
+                            foreach ($xdata as $key => $value) 
+                            {
+                                $xobj .= "<option value=\"{$value['encryptid']}\">{$value['subject']}</option>";
+                            }
+                        $xobj .= "</select>";
+                        $xobj .= "<label for=\"txtsectionid\"><small>Subject</small></label>";
+                        $xobj .= "<div class=\"invalid-tooltip\">";
+                          $xobj .= "Please provide Subject.";
+                        $xobj .= "</div>";
+                    $xobj .= "</div>";
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        // echo "<pre>";
+        // var_dump($test);
+        // var_dump($xpostdata);
+        // var_dump($xobj);
+        // die();
+
+        $xretobj['obj'] = $xobj;
+
+        echo json_encode($xretobj);
+
+    }
+
+    public function submitsigninuser(){
+        $postdata = $this->request->getPost();
 
         $xretobj['bool'] = FALSE;
         $xarr_param = $postdata['txtfld'];
@@ -58,11 +137,6 @@ class DefaultCI extends BaseController
         unset($xarr_param['password']);
 
         $row = $this->UserFile_Model->go_fetch_file1_data($xarr_param);
-
-        // echo "<pre>";
-        // var_dump($row);
-        // die();
-
 
         if(count($row) > 0)
         {
@@ -77,6 +151,7 @@ class DefaultCI extends BaseController
             {
                 $this->session->set('ci4_userid', $row[0]['userid']); 
                 $this->session->set('ci4_username', $row[0]['username']);
+                $this->session->set('ci4_usertype', $row[0]['usertype']);
 
                 $xretobj['bool'] = TRUE;
                 $xretobj['msg'] = "Success.";

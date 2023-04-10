@@ -4,26 +4,24 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserFile_Model extends Model
+class TeacherFile_Model extends Model
 {
-    protected $DefaultCI_Model;
-
     protected $DBGroup          = 'default';
-    protected $table            = 'tbl_userfile1';
-    protected $primaryKey       = 'userid';
+    protected $table            = 'tbl_teacherfile1';
+    protected $primaryKey       = 'teacherid';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['userid', 'lastname', 'firstname', 'middlename', 'suffix', 'email', 'username', 'password', 'usertype', 'isactive'];
+    protected $allowedFields    = ['teacherid', 'employeeno', 'lastname', 'firstname', 'middlename', 'suffix', 'email', 'isactive'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    // protected $deletedField  = 'deleted_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -42,10 +40,10 @@ class UserFile_Model extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    
     public function __construct()
     {
         $this->DefaultCI_Model = model('DefaultCI_Model');
+        $this->UserFile_Model = model('UserFile_Model');
 
     }
 
@@ -61,18 +59,28 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.isactive = ?";
+            $xfilter .= "tf1.isactive = ?";
             $xarr_param[] = $postdata['isactive'];
         }
 
-        if(isset($postdata['userid']) && $postdata['userid'] != "")
+        if(isset($postdata['teacherid']) && $postdata['teacherid'] != "")
         {
             if($xfilter != "")
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.userid = ?";
-            $xarr_param[] = $postdata['userid'];
+            $xfilter .= "tf1.teacherid = ?";
+            $xarr_param[] = $postdata['teacherid'];
+        }
+
+        if(isset($postdata['employeeno']) && $postdata['employeeno'] != "")
+        {
+            if($xfilter != "")
+            {
+                $xfilter .= " AND ";
+            }
+            $xfilter .= "tf1.employeeno = ?";
+            $xarr_param[] = $postdata['employeeno'];
         }
 
         if(isset($postdata['lastname']) && $postdata['lastname'] != "")
@@ -81,7 +89,7 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.lastname = ?";
+            $xfilter .= "tf1.lastname = ?";
             $xarr_param[] = $postdata['lastname'];
         }
 
@@ -91,7 +99,7 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.firstname = ?";
+            $xfilter .= "tf1.firstname = ?";
             $xarr_param[] = $postdata['firstname'];
         }
 
@@ -101,7 +109,7 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.middlename = ?";
+            $xfilter .= "tf1.middlename = ?";
             $xarr_param[] = $postdata['middlename'];
         }
 
@@ -111,7 +119,7 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.suffix = ?";
+            $xfilter .= "tf1.suffix = ?";
             $xarr_param[] = $postdata['suffix'];
         }
 
@@ -121,30 +129,10 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.email = ?";
+            $xfilter .= "tf1.email = ?";
             $xarr_param[] = $postdata['email'];
         }
 
-
-        if(isset($postdata['username']) && $postdata['username'] != "")
-        {
-            if($xfilter != "")
-            {
-                $xfilter .= " AND ";
-            }
-            $xfilter .= "uf1.username = ?";
-            $xarr_param[] = $postdata['username'];
-        }
-
-        if(isset($postdata['password']) && $postdata['password'] != "")
-        {
-            if($xfilter != "")
-            {
-                $xfilter .= " AND ";
-            }
-            $xfilter .= "uf1.password = ?";
-            $xarr_param[] = $postdata['password'];
-        }
 
         if(isset($postdata['notinid']) && $postdata['notinid'] != "")
         {
@@ -152,8 +140,8 @@ class UserFile_Model extends Model
             {
                 $xfilter .= " AND ";
             }
-            $xfilter .= "uf1.userid != ?";
-            $xarr_param[] = $postdata['notinid']['userid'];
+            $xfilter .= "tf1.teacherid != ?";
+            $xarr_param[] = $postdata['notinid']['teacherid'];
         }
 
         if($xfilter != "")
@@ -176,7 +164,7 @@ class UserFile_Model extends Model
 
         $qry = "SELECT 
                     *
-                FROM tbl_userfile1 uf1
+                FROM tbl_teacherfile1 tf1
                 {$xfilter}
                 {$xorderby}";
         $stm = $this->query($qry, $xarr_param);
@@ -186,9 +174,17 @@ class UserFile_Model extends Model
         {
             foreach($row as $key => $value)
             {
-                $row[$key]['encryptid'] = $this->DefaultCI_Model->encode_url($value['userid']);
+                $row[$key]['encryptid'] = $this->DefaultCI_Model->encode_url($value['teacherid']);
             }
         }
+
+        // $lastQuery = $this->db->getLastQuery();
+
+        // echo $lastQuery;
+        // echo "<pre>";
+        // var_dump($postdata);
+        // var_dump($xarr_param);
+        // die();
 
         return $row;
     }
@@ -199,36 +195,63 @@ class UserFile_Model extends Model
 
         $xarr_param = array();
         $xarr_param['email'] = $postdata['txtfld']['email'];
-
         $xrows = $this->go_fetch_file1_data($xarr_param);
+
+        // echo "<pre>";
+        // var_dump($xrows);
+        // die();
 
         $xretobj['bool'] = FALSE;
         if(count($xrows) > 0)
         {
-            $xretobj['msg'] = "User already Exist!";
+            $xretobj['msg'] = "Teacher already Exist!";
         }
         else
         {
             $xarr_param = array();
             $xarr_param = $postdata['txtfld'];
-           
-            // $builder = $this->db->table($this->table);
-
-            $xarr_param['userid'] = $this->DefaultCI_Model->generate_idno("tbl_userfile1", "userid");
-            $xarr_param['password'] = $this->DefaultCI_Model->generate_password($xarr_param['lastname'], "_abc123#");
-            // $xarr_param['password'] = $this->DefaultCI_Model->encode_url($xarr_param['password']);
+            $xarr_param['teacherid'] = $this->DefaultCI_Model->generate_idno("tbl_teacherfile1", "teacherid");
+            $xarr_param['username'] = $this->DefaultCI_Model->generate_username("teacherid", "tbl_teacherfile1");
+            $xarr_param['employeeno'] = $xarr_param['username'];
             $xarr_param['isactive'] = 1;
 
-            // echo "<pre>";
-            // var_dump($xarr_param['password']);
-            // var_dump($xarr_param['password_new']);
-            // var_dump($xarr_param['password_decoded']);
-            // die();
+            $xarr_param2 = array();
+            $xarr_param2['username'] = $xarr_param['employeeno'];
+            $xrows = $this->UserFile_Model->go_fetch_file1_data($xarr_param2);
 
-            if($this->insert($xarr_param))
+            // echo "<pre>";
+            // var_dump($xarr_param);
+            // // var_dump($xarr_param['username']);
+            // // var_dump($xarr_param['employeeno']);
+            // die();
+            if(count($xrows) > 0)
             {
-                $xretobj['msg'] = "User Successfully Created!";
-                $xretobj['bool'] = True;
+                $xretobj['bool'] = FALSE;
+                $xretobj['msg'] = "User Exists!";
+            }
+            else if($this->insert($xarr_param))
+            {
+                // $lastQuery = $this->db->getLastQuery();
+
+                // echo $lastQuery;
+                // echo "<pre>";
+                // var_dump($xarr_param);
+                // die();
+
+                $xarr_param['userid'] = $this->DefaultCI_Model->generate_idno("tbl_userfile1", "userid");
+                $xarr_param['password'] = $this->DefaultCI_Model->generate_password($xarr_param['lastname'], "_abc123#");
+                $xarr_param['usertype'] = "Teacher";
+
+                if($this->UserFile_Model->insert($xarr_param))
+                {
+                    $xretobj['msg'] = "Teacher Successfully Created!";
+                    $xretobj['bool'] = True;
+                }
+                else
+                {
+                    $xretobj['bool'] = FALSE;
+                    $xretobj['msg'] = "Failed to Create Useraccount!";
+                }
             }
             else
             {
@@ -243,7 +266,6 @@ class UserFile_Model extends Model
     public function set_data_update_file1($postdata = array())
     {
         $xretobj = array();
-        // $id = 1;
         
         $xarr_param = array();
         $xarr_param_notin = array();
@@ -251,7 +273,7 @@ class UserFile_Model extends Model
         if(isset($postdata['txtfld']['email']) && $postdata['txtfld']['email'] != "")
         {
             $xarr_param['email'] = $postdata['txtfld']['email'];
-            $xarr_param_notin['userid'] = $postdata['idno'];
+            $xarr_param_notin['teacherid'] = $postdata['idno'];
             $xarr_param['notinid'] = $xarr_param_notin;
             $xrows = $this->go_fetch_file1_data($xarr_param);
         }
@@ -259,7 +281,7 @@ class UserFile_Model extends Model
         $xretobj['bool'] = FALSE;
         if(count($xrows) > 0)
         {
-            $xretobj['msg'] = "User already exist!";
+            $xretobj['msg'] = "Teacher already exist!";
         }
         else
         {
@@ -268,8 +290,28 @@ class UserFile_Model extends Model
           
             if($this->update($postdata['idno'], $xarr_param))
             {
-                $xretobj['bool'] = TRUE;
-                $xretobj['msg'] = "User successfully updated!";
+                $xarr_param = array();
+                $xarr_param['teacherid'] = $postdata['idno'];
+                $row = $this->go_fetch_file1_data($xarr_param);
+
+                $xarr_param = array();
+                $xarr_param = $postdata['txtfld'];
+                
+                $updateuserfile = $this->UserFile_Model  
+                    ->whereIn('username', [$row[0]['employeeno']])
+                    ->set($xarr_param)
+                    ->update();
+
+                if($updateuserfile)
+                {
+                    $xretobj['bool'] = TRUE;
+                    $xretobj['msg'] = "Teacher successfully updated!";
+                }
+                else
+                {
+                    $xretobj['bool'] = FALSE;
+                    $xretobj['msg'] = "Useraccount not found!";
+                }
             }
             else
             {
@@ -288,16 +330,26 @@ class UserFile_Model extends Model
         
         $xarr_param = array();
         $xarr_param['idno'] = $postdata['idno'];
-        // $xrows = $this->go_fetch_file1_data($xarr_param);
 
+        $xarr_param = array();
+        $xarr_param['teacherid'] = $postdata['idno'];
+        $xrow = $this->go_fetch_file1_data($xarr_param);
         // echo "<pre>";
-        // var_dump($xrows);
+        // var_dump($xrow);
         // die();
 
-        if($this->delete($xarr_param['idno']))
+        if(count($xrow) > 0 && $this->delete($postdata['idno']))
         {
-            $xretobj['bool'] = True;
-            $xretobj['msg'] = "User successfully deleted!";
+            if($this->UserFile_Model->where('username', $xrow[0]['employeeno'])->delete())
+            {
+                $xretobj['bool'] = True;
+                $xretobj['msg'] = "Teacher successfully deleted!";
+            }
+            else
+            {
+                $xretobj['bool'] = FALSE;
+                $xretobj['msg'] = "Useraccount not found!";
+            }
         }
         else
         {
@@ -313,27 +365,47 @@ class UserFile_Model extends Model
         $xretobj['bool'] = FALSE;
 
         $xarr_param = array();
-        $xarr_param['userid'] = $postdata['idno'];
-        $xrow = $this->go_fetch_file1_data($xarr_param);
-        $xarr_param['password'] = $this->DefaultCI_Model->generate_password($xrow[0]['lastname'], "_abc123#");
-        // $xarr_param['password'] = $this->DefaultCI_Model->encode_url($xarr_param['password']);
-
+        $xarr_param['username'] = $postdata['idno'];
+        $xrow = $this->UserFile_Model->go_fetch_file1_data($xarr_param);
+        
         // echo "<pre>";
         // var_dump($xarr_param);
+        // var_dump($xrow);
         // die();
 
-        if(count($xrow) > 0 && $this->update($postdata['idno'], $xarr_param))
+        if(count($xrow) > 0)
         {
-            $xretobj['bool'] = TRUE;
-            $xretobj['msg'] = "User password has been reset!";
+            // echo "<pre>";
+            // $xarr_param['password'] = $this->DefaultCI_Model->decode_url($xrow[0]['password']);
+            // echo "Old pass: " . ($xarr_param['password']) . "<br>";
+            // $xarr_param['password'] = $this->DefaultCI_Model->decode_url($xarr_param['password']);
+            // echo "New pass: " . ($xarr_param['password']);
+            // die();
+            $xarr_param = array();
+            $xarr_param['password'] = $this->DefaultCI_Model->generate_password($xrow[0]['lastname'], "_abc123#");
+            
+            $updateuserfile = $this->UserFile_Model  
+                    ->whereIn('username', [$postdata['idno']])
+                    ->set($xarr_param)
+                    ->update();
+
+            if($updateuserfile)
+            {
+                $xretobj['bool'] = TRUE;
+                $xretobj['msg'] = "Teacher password has been reset!";
+            }
+            else
+            {
+                $xretobj['bool'] = FALSE;
+                $xretobj['msg'] = "Password Reset Failed!";
+            }
             
         }
         else
         {
-            $xretobj['msg'] = "Password Reset Failed!";
+            $xretobj['msg'] = "Failed to reset password!";
         }
         return $xretobj;
         
     }
-  
 }

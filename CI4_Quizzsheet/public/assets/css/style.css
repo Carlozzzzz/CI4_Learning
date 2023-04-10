@@ -33,6 +33,17 @@
     font-family: "Nunito", sans-serif;
     }
 
+    .color-1
+    {
+        background: #815B5B !important;
+        cursor: pointer;
+    }
+
+    .color-2
+    {
+        background: #B08BBB !important;
+        cursor: pointer;
+    }
     /*--------------------------------------------------------------
     # Main
     --------------------------------------------------------------*/

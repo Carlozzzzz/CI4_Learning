@@ -1,33 +1,30 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\Exceptions\PageNotFoundException;
-use App\Models\UserFile_Model;
-use App\Models\DefaultCI_Model;
 
 use TCPDF;
-use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class Userfile extends BaseController
+class Studentfile extends BaseController
 {
-    protected $ModelClass;
-    protected $DefaultCI_Model;
+    public function __construct()
+    {
+        $this->ModelClass = model('StudentFile_Model');
+        $this->DefaultCI_Model = model('DefaultCI_Model');
 
-    public function __construct(){
-        $this->ModelClass = new UserFile_Model();
-        $this->DefaultCI_Model = new DefaultCI_Model();
     }
 
     public function index($isactive = 1)
     {
-        if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
+        if(session()->has('ci4_userid'))
         {
-            $page = 'userfile';
-            
+            $page = "studentfile";
+
             if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
                 throw new PageNotFoundException($page);
@@ -36,28 +33,34 @@ class Userfile extends BaseController
             $xarr_param = array();
             $xarr_param['isactive'] = $isactive;
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-            $data['data_activepage']= 'userfile';
+            $data['data_activepage']= 'studentfile';
             $data['data_isactive']= $isactive;
-            
+            if(count($data['data_recordfile']) > 0)
+            {
+                foreach($data['data_recordfile'] as $key => $value)
+                {
+                    $data['data_recordfile'][$key]['studentno'] = $this->DefaultCI_Model->encode_url($value['studentno']);
+    
+                }
+            }
+           
             return view('pages/' . $page, $data);
         }
         return view('template/errorfile');
-
     }
 
     public function addnew()
     {
         if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
         {
-            $page = "userfile_addedit";
+            $page = "studentfile_addedit";
 
             if( ! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
                 throw new PageNotFoundException($page);
             }
-            $data['data_activepage'] = "userfile";
+            $data['data_activepage'] = "studentfile";
             return view('pages/' . $page, $data);
-
         }
         return view('template/errorfile');
     }
@@ -73,7 +76,7 @@ class Userfile extends BaseController
     {
         if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
         {
-            $page = 'userfile_addedit';
+            $page = 'studentfile_addedit';
             
             if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
@@ -81,18 +84,19 @@ class Userfile extends BaseController
             }
 
             $xarr_param = array();
-            $xarr_param['userid'] = $this->DefaultCI_Model->decode_url($idno);
+            $xarr_param['studentid'] = $this->DefaultCI_Model->decode_url($idno);
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-            $data['data_activepage']= 'userfile';
+            $data['data_activepage']= 'studentfile';
+
+            // echo "<pre>";
+            // var_dump($data['data_recordfile']);
+            // die();
 
             return view('pages/' . $page, $data);
         }
         return view('template/errorfile');
-    }
 
-    // echo "<pre>";
-    //     var_dump($xpostdata);
-    //     die();
+    }
 
     public function submitupdate($idno)
     {
@@ -108,7 +112,6 @@ class Userfile extends BaseController
         $xpostdata['idno'] = $this->DefaultCI_Model->decode_url($xpostdata['idno']);
         $xdata = $this->ModelClass->set_data_delete_file1($xpostdata);
         echo json_encode($xdata);
-       
     }
 
     public function submitreset()
@@ -116,12 +119,15 @@ class Userfile extends BaseController
         $xpostdata = $this->request->getPost();
         $xpostdata['idno'] = $this->DefaultCI_Model->decode_url($xpostdata['idno']);
         $xdata = $this->ModelClass->set_data_reset_file1($xpostdata);
+        // echo "<pre>";
+        // var_dump($xpostdata);
+        // die();
         echo json_encode($xdata);
     }
 
     public function generatelisttemplate()
     {
-        if(session()->has('ci4_username'))
+        if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
         {
             $spreadsheet = new Spreadsheet();
 
@@ -132,11 +138,9 @@ class Userfile extends BaseController
             $worksheet->setCellValue('C1', 'Middle Name');
             $worksheet->setCellValue('D1', 'Suffix');
             $worksheet->setCellValue('E1', 'Email');
-            $worksheet->setCellValue('F1', 'Username');
-            $worksheet->setCellValue('G1', 'Usertype');
 
             $writer = new Csv($spreadsheet);
-            $filename = 'Upload_User_List_Template.csv';
+            $filename = 'Upload_Student_List_Template.csv';
             header('Content-Type: text/csv');
             header('Content-Disposition: attachment; filename=' . $filename);
             header('Cache-Control: max-age=0');
@@ -148,10 +152,6 @@ class Userfile extends BaseController
             return view('template/errorfile');
         }
     }
-
-    // echo "<pre>";
-    // var_dump($xpostdata);
-    // die();
 
     public function uploadlist()
     {
@@ -198,8 +198,6 @@ class Userfile extends BaseController
                             $xarr_param['txtfld']['middlename'] = $xfilesop[2]; 
                             $xarr_param['txtfld']['suffix'] = $xfilesop[3]; 
                             $xarr_param['txtfld']['email'] = $xfilesop[4]; 
-                            $xarr_param['txtfld']['username'] = $xfilesop[5]; 
-                            $xarr_param['txtfld']['usertype'] = $xfilesop[6]; 
 
                             $xdata = $this->ModelClass->set_data_insert_file1($xarr_param);
                             if($xdata['bool'] == FALSE)
@@ -252,8 +250,6 @@ class Userfile extends BaseController
             $worksheet->setCellValue('C1', 'Middle Name');
             $worksheet->setCellValue('D1', 'Suffix');
             $worksheet->setCellValue('E1', 'Email');
-            $worksheet->setCellValue('F1', 'Username');
-            $worksheet->setCellValue('G1', 'Usertype');
 
             $xarr_param = array();
             $xarr_param['isactive'] = 1;
@@ -266,14 +262,12 @@ class Userfile extends BaseController
                 $worksheet->setCellValue("C{$xctr}", $value['middlename']);
                 $worksheet->setCellValue("D{$xctr}", $value['suffix']);
                 $worksheet->setCellValue("E{$xctr}", $value['email']);
-                $worksheet->setCellValue("F{$xctr}", $value['username']);
-                $worksheet->setCellValue("G{$xctr}", $value['usertype']);
 
                 $xctr++;
             }
 
             $writer = new Csv($spreadsheet);
-            $filename = 'Download_User_List.csv';
+            $filename = 'Download_Student_List.csv';
             header('Content-Type: text/csv');
             header('Content-Disposition: attachment; filename=' . $filename);
             header('Cache-Control: max-age=0');
@@ -293,7 +287,7 @@ class Userfile extends BaseController
             $xarr_param = array();
             $xarr_param['isactive'] = 1;
             $data['data_datatablefile1'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-            return view('reports/userpdffile', $data);
+            return view('reports/studentpdffile', $data);
         }
         else
         {
@@ -301,45 +295,4 @@ class Userfile extends BaseController
         }
 
     }
-
-    public function viewlistdompdf()
-    {
-        if(session()->has('ci4_username'))
-        {
-            $xarr_param = array();
-            $xarr_param['isactive'] = 1;
-            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-            return view('reports/userpdffile', $data);
-        }
-        return view('template/errorfile');
-
-    }
-
-    public function insert()
-    {
-        // Define the CSV data
-        $data = array(
-            array('Name', 'Age', 'City'),
-            array('John Doe', 25, 'New York'),
-            array('Jane Smith', 30, 'London'),
-            array('Bob Johnson', 40, 'Paris')
-        );
-
-        // Set the HTTP headers to force download
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="example.csv"');
-
-        // Open a PHP output stream for writing the CSV data
-        $output = fopen('php://output', 'w');
-
-        // Loop over the data and write each row to the CSV stream
-        foreach ($data as $row) {
-            fputcsv($output, $row);
-        }
-
-        // Close the CSV stream
-        fclose($output);
-    }
-
-
 }
