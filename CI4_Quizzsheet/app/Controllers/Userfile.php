@@ -7,6 +7,7 @@ use App\Models\UserFile_Model;
 use App\Models\DefaultCI_Model;
 
 use TCPDF;
+use App\Libraries\MYPDF;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
@@ -20,6 +21,7 @@ class Userfile extends BaseController
     public function __construct(){
         $this->ModelClass = new UserFile_Model();
         $this->DefaultCI_Model = new DefaultCI_Model();
+
     }
 
     public function index($isactive = 1)
@@ -38,6 +40,13 @@ class Userfile extends BaseController
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             $data['data_activepage']= 'userfile';
             $data['data_isactive']= $isactive;
+
+            // $dataa = [
+            //     'lastname' => 'cal',
+            //     'firstname' => 'los',
+            //     'middlename' => 'p',
+            // ];
+            // instantiate the Pdf class
             
             return view('pages/' . $page, $data);
         }
@@ -290,6 +299,8 @@ class Userfile extends BaseController
         if(session()->has('ci4_username'))
         {
 
+            $data['pdf'] = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
             $xarr_param = array();
             $xarr_param['isactive'] = 1;
             $data['data_datatablefile1'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
@@ -340,6 +351,8 @@ class Userfile extends BaseController
         // Close the CSV stream
         fclose($output);
     }
+
+    
 
 
 }

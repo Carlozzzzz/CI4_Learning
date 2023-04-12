@@ -27,10 +27,20 @@ class Teachersubjectlistfile extends BaseController
 
             $xarr_param = array();
             $xarr_param['isactive'] = $isactive;
-            $data['data_recordfile'] = $this->TeacherFile_Model->go_fetch_file1_data($xarr_param);
+            $xarr_param['employeeno'] = session()->get('ci4_username');
+            $xrow = $this->TeacherFile_Model->go_fetch_file1_data($xarr_param);
+            $xarr_param = array();
+            $xarr_param['isactive'] = $isactive;
+            $xarr_param['teacherid'] = $xrow[0]['teacherid'];
+            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             $data['data_activepage']= 'teachersubjectlistfile';
+            $data['data_teacherid'] = "";
             $data['data_isactive']= $isactive;
            
+            // echo "<pre>";
+            // var_dump($xrow);
+            // die();
+            
             return view('pages/' . $page, $data);
         }
         return view('template/errorfile');

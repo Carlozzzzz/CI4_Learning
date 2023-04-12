@@ -19,6 +19,7 @@ class Subjectfile extends BaseController
     public function __construct(){
         $this->ModelClass = new SubjectFile_Model();
         $this->DefaultCI_Model = new DefaultCI_Model();
+        $this->TeacherFile_Model = model('TeacherFile_Model');
     }
 
     public function index($isactive = 1)
@@ -38,6 +39,9 @@ class Subjectfile extends BaseController
             $xarr_param['isactive'] = $isactive;
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             
+            // echo "<pre>";
+            // var_dump($data);
+            // die();
             return view('pages/'.$page, $data);
         }
         else

@@ -45,6 +45,7 @@ class UserFile_Model extends Model
     
     public function __construct()
     {
+        parent::__construct();
         $this->DefaultCI_Model = model('DefaultCI_Model');
 
     }
@@ -235,6 +236,7 @@ class UserFile_Model extends Model
                 $xretobj['bool'] = FALSE;
                 $xretobj['msg'] = "Failed to Save!";
             }
+
         }
         
         return $xretobj;
@@ -335,5 +337,4 @@ class UserFile_Model extends Model
         return $xretobj;
         
     }
-  
 }

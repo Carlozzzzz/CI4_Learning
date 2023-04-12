@@ -100,7 +100,7 @@
                                             required>
                                         <option value="">Select here...</option>
                                         <option value="admin" <?= isset($data_recordfile[0]['usertype']) && $data_recordfile[0]['usertype'] == "admin" ? "selected" : ""?>>Admin</option>
-                                        <option value="admin" <?= isset($data_recordfile[0]['usertype']) && $data_recordfile[0]['usertype'] == "registrar" ? "selected" : ""?>>Registrar</option>
+                                        <option value="registrar" <?= isset($data_recordfile[0]['usertype']) && $data_recordfile[0]['usertype'] == "registrar" ? "selected" : ""?>>Registrar</option>
                                     </select>
                                     <label for="txtusertype"><small>User Type</small></label>
                                 </div>

@@ -87,112 +87,158 @@
                 </a>
             </li>
 
+            
+            <!-- Admin -->
+            <?php if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin"):?>
+                <?php
+                    $xcollapsed = "collapsed";
+                    $xshow = "";
+                    $xactive = "";
 
-            <?php
-                $xcollapsed = "collapsed";
-                $xshow = "";
-                $xactive = "";
+                    if($data_activepage == "subjectfile" || $data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile") 
+                    {
+                        $xcollapsed = "";
+                        $xshow = "show";
+                        $xactive = "active";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#program-nav" data-bs-toggle="collapse" 
+                        href="#">
+                        <i class="bi bi-pencil-fill"></i></i><span>Academics</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="program-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "subjectfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>subjectfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Subjects</span>
+                            </a>
+                        </li>
 
-                if($data_activepage == "subjectfile" || $data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile") 
-                {
-                    $xcollapsed = "";
-                    $xshow = "show";
-                    $xactive = "active";
-                }
-            ?>
-            <li class="nav-item">
-                <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#program-nav" data-bs-toggle="collapse" 
-                    href="#">
-                    <i class="bi bi-pencil-fill"></i></i><span>Academics</span>
-                    <i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="program-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
-                    <?php
-                        $xactive = "";
-                        if($data_activepage == "subjectfile")
-                        {
-                            $xactive = "class=\"active\"";
-                        }
-                    ?>
-                    <li>
-                        <a href="<?= base_url() ?>subjectfile" <?= $xactive?>>
-                            <i class="bi bi-circle"></i><span>Subjects</span>
-                        </a>
-                    </li>
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>assignsubjectfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Assign Subjects</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <?php
-                        $xactive = "";
-                        if($data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile")
-                        {
-                            $xactive = "class=\"active\"";
-                        }
-                    ?>
-                    <li>
-                        <a href="<?= base_url() ?>assignsubjectfile" <?= $xactive?>>
-                            <i class="bi bi-circle"></i><span>Assign Subjects</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                <?php
+                    $xcollapsed = "collapsed";
+                    $xshow = "";
+                    $xactive = "";
 
-            <?php
-                $xcollapsed = "collapsed";
-                $xshow = "";
-                $xactive = "";
+                    if($data_activepage == "userfile" || $data_activepage == "teacherfile" || $data_activepage == "studentfile")
+                    {
+                        $xcollapsed = "";
+                        $xshow = "show";
+                        $xactive = "active";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#userfile-nav" data-bs-toggle="collapse" 
+                        href="#">
+                        <i class="bi bi-file-earmark-text" style="font-size: 1.2em;"></i><span>Accounts</span>
+                        <i class="bi bi-chevron-down ms-auto" style="font-size: 1.2em;"></i>
+                    </a>
+                    <ul id="userfile-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "userfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>userfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Users</span>
+                            </a>
+                        </li>
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "studentfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>studentfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Students</span>
+                            </a>
+                        </li>
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "teacherfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>teacherfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Teachers</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+            <?php endif?>
 
-                if($data_activepage == "userfile" || $data_activepage == "teacherfile" || $data_activepage == "studentfile")
-                {
-                    $xcollapsed = "";
-                    $xshow = "show";
-                    $xactive = "active";
-                }
-            ?>
-            <li class="nav-item">
-                <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#userfile-nav" data-bs-toggle="collapse" 
-                    href="#">
-                    <i class="bi bi-file-earmark-text" style="font-size: 1.2em;"></i><span>Accounts</span>
-                    <i class="bi bi-chevron-down ms-auto" style="font-size: 1.2em;"></i>
-                </a>
-                <ul id="userfile-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+            <!-- Teacher -->
+            <?php if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "teacher"):?>
                     <?php
-                        $xactive = "";
-                        if($data_activepage == "userfile")
-                        {
-                            $xactive = "class=\"active\"";
-                        }
-                    ?>
-                    <li>
-                        <a href="<?= base_url() ?>userfile" <?= $xactive?>>
-                            <i class="bi bi-circle"></i><span>Users</span>
-                        </a>
-                    </li>
-                    <?php
-                        $xactive = "";
-                        if($data_activepage == "studentfile")
-                        {
-                            $xactive = "class=\"active\"";
-                        }
-                    ?>
-                    <li>
-                        <a href="<?= base_url() ?>studentfile" <?= $xactive?>>
-                            <i class="bi bi-circle"></i><span>Students</span>
-                        </a>
-                    </li>
-                    <?php
-                        $xactive = "";
-                        if($data_activepage == "teacherfile")
-                        {
-                            $xactive = "class=\"active\"";
-                        }
-                    ?>
-                    <li>
-                        <a href="<?= base_url() ?>teacherfile" <?= $xactive?>>
-                            <i class="bi bi-circle"></i><span>Teachers</span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </li>
+                    $xcollapsed = "collapsed";
+                    $xshow = "";
+                    $xactive = "";
+
+                    if($data_activepage == "teachersubjectlistfile") 
+                    {
+                        $xcollapsed = "";
+                        $xshow = "show";
+                        $xactive = "active";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link <?= $xcollapsed ?>" data-bs-target="#program-nav" data-bs-toggle="collapse" 
+                        href="#">
+                        <i class="bi bi-pencil-fill"></i></i><span>My Subjects</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="program-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
+                        <?php
+                            $xactive = "";
+                            if($data_activepage == "teachersubjectlistfile")
+                            {
+                                $xactive = "class=\"active\"";
+                            }
+                        ?>
+                        <li>
+                            <a href="<?= base_url() ?>teachersubjectlistfile" <?= $xactive?>>
+                                <i class="bi bi-circle"></i><span>Subjects</span>
+                            </a>
+                        </li>
+
+                       
+                    </ul>
+                </li>
+
+                
+
+            <?php endif?>
+
 
             
         </ul>
