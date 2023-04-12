@@ -3,69 +3,129 @@
 <?= $this->section('content')?>
 
     <div class="pagetitle">
-        <nav>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= base_url();?>dashboard" onclick="$.blockUI();">Dashboard</a></li>
-            <li class="breadcrumb-item">System</li>
-            <li class="breadcrumb-item">Academics</li>
-            <li class="breadcrumb-item"><a href="<?= base_url();?>assignsubjectfile" onclick="$.blockUI();">Assign Subject</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url();?>/teachersubjectlistfile/viewteachers" onclick="$.blockUI();">Teacher</a></li>
-            <li class="breadcrumb-item active">Subjects</li>
-            <?//= $data_teacherid?>
+        
+        <?php if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin") :?>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= base_url();?>dashboard" onclick="$.blockUI();">Dashboard</a></li>
+                    <li class="breadcrumb-item">System</li>
+                    <li class="breadcrumb-item">Academics</li>
+                    <li class="breadcrumb-item"><a href="<?= base_url();?>assignsubjectfile" onclick="$.blockUI();">Assign Subject</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url();?>/teachersubjectlistfile/viewteachers" onclick="$.blockUI();">Teacher</a></li>
+                    <li class="breadcrumb-item active">Subjects</li>
+                    <?//= $data_teacherid?>
+    
+                </ol>
+            </nav>
+        <?php elseif(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "teacher") :?>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= base_url();?>dashboard" onclick="$.blockUI();">Dashboard</a></li>
+                    <li class="breadcrumb-item">My Subjects</li>
+                    <li class="breadcrumb-item active">Subjects</li>
+                    <?//= $data_teacherid?>
+    
+                </ol>
+            </nav>
+        <?php endif;?>
 
-        </ol>
-        </nav>
+        <?php if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin") :?>
+        <?php elseif(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "teacher") :?>
+        <?php endif;?>
+
     </div>
+
+    <style>
+        .cover
+        {
+            height: 150px;
+        }
+
+        .hover
+        {
+            cursor: pointer;
+        }
+
+    </style>
 
     <section class="section dashboard">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card info-card sales-card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><span class="small me-1 fw-bold">Action</span><i class="bi bi-three-dots-vertical"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Action</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/addnew/<?= isset($data_teacherid) && $data_teacherid != "" ? $data_teacherid : "" ?>" role="button" onclick="$.blockUI();"><i class="bi bi-plus-lg"></i> Add new</a></li>
-                            <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/viewlistpdf" target="_blank" ><i class="bi bi-file-earmark"></i> View Pdf</a></li> -->
-                            <!-- <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#frmmodalimportlistform"><i class="bi bi-upload"></i> Upload List</a></li> -->
-                            <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/downloadlist" target="_blank"><i class="bi bi-download"></i> Download List</a></li> -->
-                            <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/generatelisttemplate" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Generate Template</a></li> -->
-                        </ul>
-                    </div>
-                    <div class="card-body mt-5">
-                        <div class="table-responsive">
-                            <table class="table datatable table-striped table-hover small">
-                                <thead>
-                                    <tr>
-                                        <th class="text-left not-sortable" scope="col">
-                                            <div class="form-check form-switch small align-end m-0">
-                                                <input type="checkbox" class="form-check-input" role="switch" onchange="viewactive(this);" <?= $data_isactive == 1 ? "checked" : "";?> id="txtcheckactive" data-toggle="tooltip" title="Tick to view <?= $data_isactive == 1 ? "Inactive" : "Active";?> Teacher Subjects" disabled>
-                                                <small>No.</small>
-                                            </div>
-                                        </th>
-                                        <th>Subject</th>
-                                        <th>Action</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php  foreach($data_recordfile as $key => $value) :?>
+                
+                <?php if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin") :?>
+                    <div class="card info-card sales-card">
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><span class="small me-1 fw-bold">Action</span><i class="bi bi-three-dots-vertical"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Action</h6>
+                                </li>
+                                <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/addnew/<?= isset($data_teacherid) && $data_teacherid != "" ? $data_teacherid : "" ?>" role="button" onclick="$.blockUI();"><i class="bi bi-plus-lg"></i> Add new</a></li>
+                                <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/viewlistpdf" target="_blank" ><i class="bi bi-file-earmark"></i> View Pdf</a></li> -->
+                                <!-- <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#frmmodalimportlistform"><i class="bi bi-upload"></i> Upload List</a></li> -->
+                                <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/downloadlist" target="_blank"><i class="bi bi-download"></i> Download List</a></li> -->
+                                <!-- <li><a class="dropdown-item" href="<?= base_url().$data_activepage;?>/generatelisttemplate" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Generate Template</a></li> -->
+                            </ul>
+                        </div>
+                        <div class="card-body mt-5">
+                            <div class="table-responsive">
+                                <table class="table datatable table-striped table-hover small">
+                                    <thead>
                                         <tr>
-                                            <td><small><?= $value['teachersfid']?></small></td>
-                                            <td class="align-middle"><small><?= $value['subject']?></small></td>
-                                            <td>
-                                                <a href="<?= base_url().$data_activepage; ?>/edit/<?= $value['encryptid']; ?>" onclick="$.blockUI();" role="button" class="btn btn-sm btn-success text-white" data-toggle="tooltip" title="Edit"><i class="bi bi-pencil"></i></a>
-                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete" onclick="Delete(this);" id="<?= $value['encryptid']; ?>"><i class="bi bi-trash"></i></button>
-                                            </td>
+                                            <th class="text-left not-sortable" scope="col">
+                                                <div class="form-check form-switch small align-end m-0">
+                                                    <input type="checkbox" class="form-check-input" role="switch" onchange="viewactive(this);" <?= $data_isactive == 1 ? "checked" : "";?> id="txtcheckactive" data-toggle="tooltip" title="Tick to view <?= $data_isactive == 1 ? "Inactive" : "Active";?> Teacher Subjects" disabled>
+                                                    <small>No.</small>
+                                                </div>
+                                            </th>
+                                            <th>Subject</th>
+                                            <th>Action</th>
+                                            
                                         </tr>
-                                    <?php  endforeach;?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php  foreach($data_recordfile as $key => $value) :?>
+                                            <tr>
+                                                <td><small><?= $value['teachersfid']?></small></td>
+                                                <td class="align-middle"><small><?= $value['subject']?></small></td>
+                                                <td>
+                                                    <a href="<?= base_url().$data_activepage; ?>/edit/<?= $value['encryptid']; ?>" onclick="$.blockUI();" role="button" class="btn btn-sm btn-success text-white" data-toggle="tooltip" title="Edit"><i class="bi bi-pencil"></i></a>
+                                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete" onclick="Delete(this);" id="<?= $value['encryptid']; ?>"><i class="bi bi-trash"></i></button>
+                                                </td>
+                                            </tr>
+                                        <?php  endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php elseif(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "teacher") :?>
+                    <div class="card info-card sales-card">
+                        <div class="card-header px-2 py-5">
+                            <h3 class="px-1">My Courses</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row p-0">
+                                <?php foreach($data_recordfile as $key => $value) :?>
+                                    <div class="item col-xs-12 col-sm-6 col-lg-4 p-0 px-1">
+                                        <div class="panel panel-default">
+                                            <div class="cover overlay cover-image-full hover d-flex align-items-center justify-content-center bg-secondary text-light">
+                                                <i class="bi bi-mortarboard fs-2"></i>
+                                            </div>
+                                            <div class="panel-body p-3">
+                                                <h3 class="panel-title"><?= $value['subject'];?></h3>
+                                            </div>
+                                            <hr class="margin-none">
+                                            <div class="panel-body p-3 ">
+                                                <button class="btn btn-white btn-flat paper-shadow relative fw-bold"><span class="me-2"><i class="bi bi-pencil"></i></span>Edit Subjects</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php  endforeach;?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif;?>
             </div>
         </div>
     </section>

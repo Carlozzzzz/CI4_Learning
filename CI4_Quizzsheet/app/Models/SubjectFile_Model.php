@@ -137,14 +137,17 @@ class SubjectFile_Model extends Model
         $qry = "SELECT 
                     sf1.*
                 FROM tbl_subjectfile1 sf1
-                LEFT JOIN tbl_subjectfile2 sf2 ON sf1.subjectid = sf2.subjectid
+                -- LEFT JOIN tbl_subjectfile2 sf2 ON sf1.subjectid = sf2.subjectid
                 {$xfilter}
                 {$xorderby}";
-        // echo "<pre>";
-        // var_dump($qry);
-        // die();
         $stm = $this->query($qry, $xarr_param);
         $row = $stm->getResultArray();
+        // echo "<pre>";
+        // var_dump($qry);
+        // var_dump($xarr_param);
+        // var_dump($postdata);
+        // var_dump($row);
+        // die();
         
         if(count($row) > 0)
         {
@@ -180,11 +183,11 @@ class SubjectFile_Model extends Model
 
             if($this->insert($xarr_param))
             {
-                // $lastQuery = $this->db->getLastQuery();
-                // echo $lastQuery;
-                // echo "<pre>";
-                // var_dump($xarr_param);
-                // die();
+                $lastQuery = $this->db->getLastQuery();
+                echo $lastQuery;
+                echo "<pre>";
+                var_dump($xarr_param);
+                die();
                 $xretobj['bool'] = true;
                 $xretobj['msg'] = "Subject Successfully Created!";
             }

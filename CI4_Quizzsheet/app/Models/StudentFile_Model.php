@@ -240,7 +240,7 @@ class StudentFile_Model extends Model
 
                 $xarr_param['userid'] = $this->DefaultCI_Model->generate_idno("tbl_userfile1", "userid");
                 $xarr_param['password'] = $this->DefaultCI_Model->generate_password($xarr_param['lastname'], "_abc123#");
-                $xarr_param['usertype'] = "Student";
+                $xarr_param['usertype'] = "student";
 
                 if($this->UserFile_Model->insert($xarr_param))
                 {
