@@ -2,7 +2,7 @@
 
 [Adminer](http://localhost/adminer.php)
  
-## My Projects!
+## My Projects
 
 1. [TodoList](http://localhost/development/practice/CI4_Learning/CI4_TodoList/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_TodoList)
 
@@ -14,4 +14,4 @@
 
 
 
-## My Tutorials!
+## Tutorials Projects
