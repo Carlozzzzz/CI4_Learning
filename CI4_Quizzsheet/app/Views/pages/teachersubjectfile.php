@@ -101,23 +101,23 @@
                     </div>
                 <?php elseif(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "teacher") :?>
                     <div class="card info-card sales-card">
-                        <div class="card-header px-2 py-5">
-                            <h3 class="px-1">My Courses</h3>
+                        <div class="px-3 py-5">
+                            <h3 class="">My Subjects</h3>
                         </div>
                         <div class="card-body">
-                            <div class="row p-0">
+                            <div class="row gx-4">
                                 <?php foreach($data_recordfile as $key => $value) :?>
-                                    <div class="item col-xs-12 col-sm-6 col-lg-4 p-0 px-1">
-                                        <div class="panel panel-default">
+                                   <div class="item col-xs-12 col-sm-6 col-lg-4"> <!--  p-0 px-1 -->
+                                        <div class="card shadow-sm">
                                             <div class="cover overlay cover-image-full hover d-flex align-items-center justify-content-center bg-secondary text-light">
                                                 <i class="bi bi-mortarboard fs-2"></i>
                                             </div>
-                                            <div class="panel-body p-3">
+                                            <div class="card-body p-3">
                                                 <h3 class="panel-title"><?= $value['subject'];?></h3>
                                             </div>
-                                            <hr class="margin-none">
-                                            <div class="panel-body p-3 ">
-                                                <button class="btn btn-white btn-flat paper-shadow relative fw-bold"><span class="me-2"><i class="bi bi-pencil"></i></span>Edit Subjects</button>
+                                            <!-- <hr class="margin-none"> -->
+                                            <div class="card-footer p-3 ">
+                                                <a href="<?= base_url().$data_activepage ?>/view/<?= $value['encryptid'] ?>" class="btn btn-white btn-flat paper-shadow relative fw-bold teachersubject"><span class="me-2"><i class="bi bi-pencil"></i></span>View Subject</a>
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +134,8 @@
 
 <?= $this->section('script'); ?>
 
-       
+
+<!-- Admin -->
 <script type="text/javascript">
     
     function upload(){
@@ -341,6 +342,13 @@
                 }
             }
         });
+    }
+</script>
+
+<!-- Teacher -->
+<script type="text/javascript">
+    function editsubject(obj){
+        
     }
 </script>
         

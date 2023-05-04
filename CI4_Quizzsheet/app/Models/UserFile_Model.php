@@ -166,8 +166,9 @@ class UserFile_Model extends Model
         {
             if(isset($postdata['orderby']) && $postdata['orderby']['field'] != "")
             {
-                $xorderby .= "ORDER BY " . $postdata['orderby']['field'] != "";
+                $xorderby .= "ORDER BY " . $postdata['orderby']['field'];
             }
+            
 
             if(isset($postdata['orderby']['ordertype']) && $postdata['orderby']['ordertype'] != "")
             {
@@ -180,6 +181,13 @@ class UserFile_Model extends Model
                 FROM tbl_userfile1 uf1
                 {$xfilter}
                 {$xorderby}";
+
+        // echo "<pre>";
+        // var_dump($qry);
+        // var_dump($postdata['orderby']);
+        // var_dump($postdata['orderby']['field']);
+        // die();
+
         $stm = $this->query($qry, $xarr_param);
         $row = $stm->getResultArray();
         
@@ -190,6 +198,7 @@ class UserFile_Model extends Model
                 $row[$key]['encryptid'] = $this->DefaultCI_Model->encode_url($value['userid']);
             }
         }
+
 
         return $row;
     }

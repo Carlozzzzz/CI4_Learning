@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h5 class="card-title ">Assign Subject</h5>
                         <div class="d-flex">
-                            <a class="text-light" href="<?= base_url()?>teachersubjectlistfile/viewteachers">
+                            <a class="text-light" href="<?= base_url()?>teachersubjectfile/viewteachers">
                                 <div class="d-flex p-4 m-2 color-2 rounded fw-bold">
                                 Teacher's Subjects
                                 </div>

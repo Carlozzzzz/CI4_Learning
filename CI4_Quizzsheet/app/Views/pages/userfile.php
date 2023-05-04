@@ -44,6 +44,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Username</th>
+                                            <th>Usertype</th>
                                             <th>Action</th>
                                             
                                         </tr>
@@ -65,6 +66,7 @@
                                                 </td>
                                                 <td class="align-middle"><small><?= $value['email']?></small></td>
                                                 <td class="align-middle"><small><?= $value['username']?></small></td>
+                                                <td class="align-middle"><small><?= $value['usertype']?></small></td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Reset" onclick="resetpass(this);" id="<?= $value['encryptid']; ?>"><i class="bi bi-arrow-clockwise"></i></button>
                                                     <a href="<?= base_url().$data_activepage; ?>/edit/<?= $value['encryptid']; ?>" onclick="$.blockUI();" role="button" class="btn btn-sm btn-success text-white" data-toggle="tooltip" title="Edit"><i class="bi bi-pencil"></i></a>

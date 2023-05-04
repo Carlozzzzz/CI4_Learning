@@ -37,6 +37,7 @@ class Userfile extends BaseController
 
             $xarr_param = array();
             $xarr_param['isactive'] = $isactive;
+            $xarr_param['orderby']['field'] = "userid ASC";
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             $data['data_activepage']= 'userfile';
             $data['data_isactive']= $isactive;

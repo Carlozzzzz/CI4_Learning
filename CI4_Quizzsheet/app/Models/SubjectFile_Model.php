@@ -125,7 +125,7 @@ class SubjectFile_Model extends Model
         {
             if(isset($postdata['orderby']) && $postdata['orderby']['field'] != "")
             {
-                $xorderby .= "ORDER BY " . $postdata['orderby']['field'] != "";
+                $xorderby .= "ORDER BY " . $postdata['orderby']['field'];
             }
 
             if(isset($postdata['orderby']['ordertype']) && $postdata['orderby']['ordertype'] != "")
@@ -184,10 +184,10 @@ class SubjectFile_Model extends Model
             if($this->insert($xarr_param))
             {
                 $lastQuery = $this->db->getLastQuery();
-                echo $lastQuery;
-                echo "<pre>";
-                var_dump($xarr_param);
-                die();
+                // echo $lastQuery;
+                // echo "<pre>";
+                // var_dump($xarr_param);
+                // die();
                 $xretobj['bool'] = true;
                 $xretobj['msg'] = "Subject Successfully Created!";
             }

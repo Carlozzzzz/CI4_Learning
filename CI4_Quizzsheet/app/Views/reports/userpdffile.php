@@ -12,7 +12,7 @@ $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 // set default header data
 $xotherdata = "San Jose, Batangas\nTel. No. (000) 000 000\nUser List";
 
-$pdf->SetHeaderData(PDF_HEADER_LOGO, 16, 'Dr. Juan A. Pastor Integrated National High School', $xotherdata);
+$pdf->SetHeaderData(PDF_HEADER_LOGO, 10, 'Dr. Juan A. Pastor Integrated National High School', $xotherdata);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', 9));

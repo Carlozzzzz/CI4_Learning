@@ -153,7 +153,7 @@ class TeacherFile_Model extends Model
         {
             if(isset($postdata['orderby']) && $postdata['orderby']['field'] != "")
             {
-                $xorderby .= "ORDER BY " . $postdata['orderby']['field'] != "";
+                $xorderby .= "ORDER BY " . $postdata['orderby']['field'];
             }
 
             if(isset($postdata['orderby']['ordertype']) && $postdata['orderby']['ordertype'] != "")
