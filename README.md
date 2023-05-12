@@ -14,7 +14,7 @@
 
 5. [Quiz_fromAPI](http://localhost/development/practice/CI4_Learning/CI4_Quiz_fromAPI/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_Quiz_fromAPI)
 
-6. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH_JSON/public/) - [Repo]
+6. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH_JSON/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_FETCH_JSON)
 
 
 ## Tutorials Projects
