@@ -168,7 +168,7 @@
                         {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Welcome to Potato Login Systems, Developing an CI3 to CI4 project.',
+                                title: 'Welcome to Potato Login Systems, Developing an CI4 Login System.',
                                 allowOutsideClick: false
                             }).then((result) => {
                                 if(result.value){
