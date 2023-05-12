@@ -12,7 +12,7 @@
 
 4. [Quizzsheet](http://localhost/development/practice/CI4_Learning/CI4_Quizzsheet/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_Quizzsheet)
 
-5. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH-JSON/public/) - [Repo]
+5. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH_JSON/public/) - [Repo]
 
 
 ## Tutorials Projects
