@@ -95,7 +95,7 @@
                     $xshow = "";
                     $xactive = "";
 
-                    if($data_activepage == "subjectfile" || $data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile") 
+                    if($data_activepage == "subjectfile" || $data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectfile") 
                     {
                         $xcollapsed = "";
                         $xshow = "show";
@@ -124,7 +124,7 @@
 
                         <?php
                             $xactive = "";
-                            if($data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectlistfile")
+                            if($data_activepage == "assignsubjectfile" || $data_activepage == "studentsubjectlistfile" || $data_activepage == "teachersubjectfile")
                             {
                                 $xactive = "class=\"active\"";
                             }
@@ -204,7 +204,7 @@
                     $xshow = "";
                     $xactive = "";
 
-                    if($data_activepage == "teachersubjectlistfile") 
+                    if($data_activepage == "teachersubjectfile") 
                     {
                         $xcollapsed = "";
                         $xshow = "show";
@@ -220,13 +220,13 @@
                     <ul id="program-nav" class="nav-content collapse <?= $xshow?>" data-bs-parent="#side-nav">
                         <?php
                             $xactive = "";
-                            if($data_activepage == "teachersubjectlistfile")
+                            if($data_activepage == "teachersubjectfile")
                             {
                                 $xactive = "class=\"active\"";
                             }
                         ?>
                         <li>
-                            <a href="<?= base_url() ?>teachersubjectlistfile" <?= $xactive?>>
+                            <a href="<?= base_url() ?>teachersubjectfile" <?= $xactive?>>
                                 <i class="bi bi-circle"></i><span>Subjects</span>
                             </a>
                         </li>

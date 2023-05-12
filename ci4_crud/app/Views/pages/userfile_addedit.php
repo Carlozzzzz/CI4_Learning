@@ -1,6 +1,7 @@
 <?= $this->extend('template/main') ?>
 
 <?= $this->section('content')?>
+
     <div class="pagetitle">
         <nav class="float-end">
             <ol class="breadcrumb">
@@ -119,6 +120,7 @@
     </section>
 
     <script type="text/javascript">
+
         function save(){
             Swal.fire({
                 title: "Are you sure?",
@@ -249,7 +251,7 @@
                 }
             });
         }
-
         
     </script>
+
 <?= $this->endSection(); ?>

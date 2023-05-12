@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
-class Teachersubjectlistfile extends BaseController
+class Teachersubjectfile extends BaseController
 {
     public function __construct(){
         $this->ModelClass = model('TeachersubjectlistFile_Model');
@@ -18,7 +18,7 @@ class Teachersubjectlistfile extends BaseController
     {
         if(session()->has('ci4_userid'))
         {
-            $page = "teachersubjectlistfile";
+            $page = "teachersubjectfile";
 
             if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
@@ -33,7 +33,7 @@ class Teachersubjectlistfile extends BaseController
             $xarr_param['isactive'] = $isactive;
             $xarr_param['teacherid'] = $xrow[0]['teacherid'];
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-            $data['data_activepage']= 'teachersubjectlistfile';
+            $data['data_activepage']= 'teachersubjectfile';
             $data['data_teacherid'] = "";
             $data['data_isactive']= $isactive;
            
@@ -60,7 +60,7 @@ class Teachersubjectlistfile extends BaseController
             $xarr_param = array();
             $xarr_param['isactive'] = $isactive;
             $data['data_recordfile'] = $this->TeacherFile_Model->go_fetch_file1_data($xarr_param);
-            $data['data_activepage']= 'teachersubjectlistfile';
+            $data['data_activepage']= 'teachersubjectfile';
             $data['data_managesubject'] = 'Yes';
             $data['data_isactive']= $isactive;
            
@@ -73,7 +73,7 @@ class Teachersubjectlistfile extends BaseController
     {
         if(session()->has('ci4_userid'))
         {
-            $page = "teachersubjectlistfile";
+            $page = "teachersubjectfile";
 
             if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
@@ -85,7 +85,7 @@ class Teachersubjectlistfile extends BaseController
             $xarr_param['teacherid'] = $this->DefaultCI_Model->decode_url($idno);
             $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
             $data['data_teacherid'] = $idno;
-            $data['data_activepage']= 'teachersubjectlistfile';
+            $data['data_activepage']= 'teachersubjectfile';
             $data['data_isactive']= 1;
            
             return view('pages/' . $page, $data);
@@ -97,13 +97,13 @@ class Teachersubjectlistfile extends BaseController
     {
         if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
         {
-            $page = "teachersubjectlistfile_addedit";
+            $page = "teachersubjectfile_addedit";
 
             if( ! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
             {
                 throw new PageNotFoundException($page);
             }
-            $data['data_activepage'] = "teachersubjectlistfile";
+            $data['data_activepage'] = "teachersubjectfile";
             $data['data_teacherid'] = $idno;
             $xarr_param['isactive'] = 1;
             $data['data_subjectfile'] = $this->SubjectFile_Model->go_fetch_file1_data($xarr_param);
@@ -130,26 +130,88 @@ class Teachersubjectlistfile extends BaseController
 
     public function edit($idno)
     {
-        $page = 'teachersubjectlistfile_addedit';
-
-        if(! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+        if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "admin")
         {
-            throw new PageNotFoundException($page);
-        }
-        
-        $data['data_activepage'] = 'teachersubjectlistfile';
-        $xarr_param = array();
-        $xarr_param['teachersfid'] = $this->DefaultCI_Model->decode_url($idno);
-        $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
-        $xarr_param = array();
-        $xarr_param['isactive'] = 1;
-        $data['data_subjectfile'] = $this->SubjectFile_Model->go_fetch_file1_data($xarr_param);
-        $data['data_teacherid'] = $this->DefaultCI_Model->encode_url($data['data_recordfile'][0]['teacherid']);
+            $page = 'teachersubjectfile_addedit';
 
-        // echo "<pre>";
-        // var_dump($data['data_recordfile'][0]['teacherid']);
-        // die();
-        return view('pages/' . $page, $data);
+            if(! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+            {
+                throw new PageNotFoundException($page);
+            }
+            
+            $data['data_activepage'] = 'teachersubjectfile';
+            $xarr_param = array();
+            $xarr_param['teachersfid'] = $this->DefaultCI_Model->decode_url($idno);
+            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
+            $xarr_param = array();
+            $xarr_param['isactive'] = 1;
+            $data['data_subjectfile'] = $this->SubjectFile_Model->go_fetch_file1_data($xarr_param);
+            $data['data_teacherid'] = $this->DefaultCI_Model->encode_url($data['data_recordfile'][0]['teacherid']);
+            return view('pages/' . $page, $data);
+        }
+        else if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "teacher")
+        {
+            $page = 'teachersubjectfile_managesub';
+
+            if(! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+            {
+                throw new PageNotFoundException($page);
+            }
+            
+            $data['data_activepage'] = 'teachersubjectfile';
+            $xarr_param = array();
+            $xarr_param['teachersfid'] = $this->DefaultCI_Model->decode_url($idno);
+            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
+            $xarr_param = array();
+            $xarr_param['isactive'] = 1;
+            $data['data_subjectfile'] = $this->SubjectFile_Model->go_fetch_file1_data($xarr_param);
+            $data['data_teacherid'] = $this->DefaultCI_Model->encode_url($data['data_recordfile'][0]['teacherid']);
+            return view('pages/' . $page, $data);
+        }
+        else
+        {
+            return view('template/errorfile');
+        }
+
+    }
+
+    public function view($idno)
+    {
+        if(session()->has('ci4_userid') && session()->get('ci4_usertype') == "teacher")
+        {
+            $page = 'teachersubjectfile_managesub';
+
+            if(! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+            {
+                throw new PageNotFoundException($page);
+            }
+            
+            $data['data_activepage'] = 'teachersubjectfile';
+            $xarr_param = array();
+            $xarr_param['teachersfid'] = $this->DefaultCI_Model->decode_url($idno);
+            $data['data_recordfile'] = $this->ModelClass->go_fetch_file1_data($xarr_param);
+            $xarr_param = array();
+            $xarr_param['isactive'] = 1;
+            $xarr_param['subjectid'] = $this->DefaultCI_Model->decode_url($idno);
+            $data['data_subjectfile'] = $this->SubjectFile_Model->go_fetch_file1_data($xarr_param);
+            $data['data_teacherid'] = $this->DefaultCI_Model->encode_url($data['data_recordfile'][0]['teacherid']);
+
+            // echo "<pre>";
+            // var_dump($data['data_recordfile']);
+            // die();
+
+            
+            return view('pages/' . $page, $data);
+        }
+        else
+        {
+            return view('template/errorfile');
+        }
+    }
+
+    public function editteachersubject($idno)
+    {
+
     }
 
     public function submitupdate($idno)

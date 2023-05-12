@@ -44,7 +44,6 @@ class TeachersubjectlistFile_Model extends Model
     {
         $this->DefaultCI_Model = model('DefaultCI_Model');
         $this->Subject_File = model('Subject_File');
-
     }
     
     public function go_fetch_file1_data($postdata = array())
@@ -102,7 +101,7 @@ class TeachersubjectlistFile_Model extends Model
         {
             if(isset($postdata['orderby']) && $postdata['orderby']['field'] != "")
             {
-                $xorderby .= "ORDER BY " . $postdata['orderby']['field'] != "";
+                $xorderby .= "ORDER BY " . $postdata['orderby']['field'];
             }
 
             if(isset($postdata['orderby']['ordertype']) && $postdata['orderby']['ordertype'] != "")
