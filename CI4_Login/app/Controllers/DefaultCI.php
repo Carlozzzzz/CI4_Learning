@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 use App\Controllers\BaseController;
 use App\Models\DefaultCI_Model;
@@ -24,31 +25,40 @@ class DefaultCI extends BaseController
 
     public function index($isactive = 1){
 
-        $page = "index";
-        if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
-            // Whoops, we don't have a page for that!
-            return view ('template/errorfile');
-        }
-        $data['data_activepage']= 'index';
-        return view ('index');
-    }
+        if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin")
+        {
 
-    public function dashboard($page = "dashboard"){
-        if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+            $page = "index";
+            if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
+                throw new PageNotFoundException($page);
+            }
+            $data['data_activepage']= 'index';
+            return view ('index');
+        }
+        else
         {
             return view ('template/errorfile');
         }
+    }
 
-        $data['data_activepage']= 'dashboard';
-        return view('pages/dashboard', $data);
+    public function dashboard($page = "dashboard"){
+        if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin")
+        {
+            if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
+            {
+                throw new PageNotFoundException($page);
+            }
+            $data['data_activepage']= 'dashboard';
+            return view('pages/dashboard', $data);
+        }
+        else
+        {
+            return view ('template/errorfile');
+        }
     }
 
     public function submitsigninuser(){
         $postdata = $this->request->getPost();
-
-        // echo "<pre>";
-        // var_dump($postdata);
-        // die();
 
         $xretobj['bool'] = FALSE;
         $xarr_param = $postdata['txtfld'];
@@ -58,11 +68,6 @@ class DefaultCI extends BaseController
         unset($xarr_param['password']);
 
         $row = $this->UserFile_Model->go_fetch_file1_data($xarr_param);
-
-        // echo "<pre>";
-        // var_dump($row);
-        // die();
-
 
         if(count($row) > 0)
         {
