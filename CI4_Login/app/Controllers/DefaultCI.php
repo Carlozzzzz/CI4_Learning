@@ -25,36 +25,22 @@ class DefaultCI extends BaseController
 
     public function index($isactive = 1){
 
-        if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin")
-        {
-
-            $page = "index";
-            if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
-                throw new PageNotFoundException($page);
-            }
-            $data['data_activepage']= 'index';
-            return view ('index');
+        $page = "index";
+        if (! is_file(APPPATH . 'Views/' . $page . '.php')) {
+            throw new PageNotFoundException($page);
         }
-        else
-        {
-            return view ('template/errorfile');
-        }
+        $data['data_activepage']= 'index';
+        return view ('index');
+       
     }
 
     public function dashboard($page = "dashboard"){
-        if(session()->has('ci4_usertype') && session()->get('ci4_usertype') == "admin")
+        if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
         {
-            if (! is_file(APPPATH . 'Views/pages/' . $page . '.php'))
-            {
-                throw new PageNotFoundException($page);
-            }
-            $data['data_activepage']= 'dashboard';
-            return view('pages/dashboard', $data);
+            throw new PageNotFoundException($page);
         }
-        else
-        {
-            return view ('template/errorfile');
-        }
+        $data['data_activepage']= 'dashboard';
+        return view('pages/dashboard', $data);
     }
 
     public function submitsigninuser(){
