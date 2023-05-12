@@ -70,6 +70,9 @@ class DefaultCI extends BaseController
             $xmypass = $this->ModelClass->decode_url($row[0]['password']);
             // $xmypass = $row[0]['password'];
 
+            // echo $xmypass;
+            // die();
+
             $xretobj['bool'] = FALSE;
             $xretobj['msg'] = "Invalid Password";
 

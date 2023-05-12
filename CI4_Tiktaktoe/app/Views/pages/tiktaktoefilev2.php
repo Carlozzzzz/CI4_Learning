@@ -219,7 +219,7 @@
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor : "#d33",
-                        confirmButtonText: "Yes, I will beat his/her ass!",
+                        confirmButtonText: "Yes, I will beat his/her next round!",
                         footer: '<img src="<?= base_url()?>assets/img/medal_logo.png" width="50px">',
                     }).then((result) => {
                         if(result.value)
@@ -254,7 +254,7 @@
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor : "#d33",
-                        confirmButtonText: "Yes, I will beat his/her ass!",
+                        confirmButtonText: "Yes, I will beat his/her next round!",
                         footer: '<img src="<?= base_url()?>assets/img/medal_logo.png" width="50px">',
                     }).then((result) => {
                         if(result.value)
@@ -284,7 +284,7 @@
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor : "#d33",
-                        confirmButtonText: "Yes, I will beat his/her ass!",
+                        confirmButtonText: "Yes, I will beat his/her next round!",
                         footer: '<img src="<?= base_url()?>assets/img/medal_logo.png" width="50px">',
                     }).then((result) => {
                         if(result.value)
