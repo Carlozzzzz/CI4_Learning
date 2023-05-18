@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+# Override
+--------------------------------------------------------------*/
+
+body{
+    background-color: #ecf5ff;
+}
+
+/* UTILITIES */
+.custom-box-size{
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.custom-box-size > * {
+    width: 100%;
+  }
+
+
+/* BUTTONS */
+.custom-btn {
+    font-size: 1rem;
+    padding: .7rem .7rem;
+    width: 10rem;
+    text-align: center;
+    border: 0.1rem solid #56a5eb;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    color: #56a5eb;
+    background-color: white;
+}
+
+.custom-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.1rem .7rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.custom-btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Colors */
+.custom-color {
+    color: #56a5eb;
+}
+
+/*--------------------------------------------------------------
+# Quizfile
+--------------------------------------------------------------*/
+
+.choice-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 0.1rem solid rgb(86, 165, 235, 0.25);
+    background-color: white;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.choice-prefix {
+    padding: 1rem 1.8rem;
+    margin: 0;
+    background-color: #56a5eb;
+    color: white;
+}
+
+.choice-text{
+    padding: 1rem;
+    width: 100%;
+    margin: 0;
+}
+
+.correct{
+    background-color: #28a745;
+}
+
+.incorrect{
+    background-color: #dc3454;
+}
+
+/* HUD */
+#hud {
+    display: flex;
+    justify-content: space-between;
+}
+
+#hud .hud-main-text, .hud-prefix{
+    text-align: center;
+}
+
+#progressBar{
+    width: 15rem;
+    height: 2.1rem;
+    border: 0.2rem solid #56a5eb;
+}
+
+#progressBarFull{
+    height: 1.9rem;
+    background-color: #56a5eb;
+    width: 0%;
+    transition-duration: 0.5s;
+}
+
+/* Quiz form */
+#end .examform {
+    width: 100%;
+}
+
+#end .examform input{
+    width: 10rem;
+    border: none;
+    padding: .7rem;
+    font-size: 1rem;
+    box-shadow: 0 0.1rem .7rem 0 rgba(86, 185, 235, 0.4);
+    margin-bottom: .5rem;
+}
+
+input::placeholder{
+    color: #aaa;
+}
+
+/* Loader */
+#loader {
+    border: .8rem solid white;
+    border-radius: 50%;
+    border-top: .8rem solid #56a5eb;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(360deg)
+  }
+} 
+
+/* High Scores */
+#highScoresList {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 4rem;
+}
+
+.high-score {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.high-score:hover {
+    transform: scale(1.025);
+    color: #56a5eb;
+    cursor: default;
+}
