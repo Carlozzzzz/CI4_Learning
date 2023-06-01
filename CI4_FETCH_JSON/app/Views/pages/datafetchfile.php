@@ -21,6 +21,7 @@
                     <p>open your console to see the results...</p>
 
                     <p>Sample: <span id="descriptionData">...</span></p>
+                    <a href="<?= base_url('datafetchfile/datafetch_file2')?>" class="btn btn-primary">Practice</a>
                 </div>
                 
             </div>
