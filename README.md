@@ -16,6 +16,10 @@
 
 6. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH_JSON/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_FETCH_JSON)
 
+## Hosted
+
+1. [Simple Php](http://simplephp.atwebpages.com/)
+
 
 ## Tutorials Projects
 
