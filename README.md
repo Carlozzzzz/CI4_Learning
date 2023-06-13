@@ -18,7 +18,7 @@
 
 ## Hosted
 
-1. [Simple Php](http://simplephp.atwebpages.com/)
+1. [Simple Php](http://simplephp.atwebpages.com/) - [Server](https://cp1.awardspace.net/)
 
 
 ## Tutorials Projects
