@@ -5,7 +5,9 @@
 ## Practice
 
 1. [OOP Profile - Restructure](http://localhost/development/projects/Working/OOP_Profile_Restructure/)
- 
+   * username : carlos
+   * password : 123
+      
 ## My Projects
 
 1. [TodoList](http://localhost/development/practice/CI4_Learning/CI4_TodoList/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_TodoList)
