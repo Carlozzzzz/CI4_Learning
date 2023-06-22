@@ -4,7 +4,7 @@
 
 ## Practice
 
-1. [OOP Profile - Restructure](http://localhost/development/projects/Working/OOP_Profile_Restructure/)
+1. [OOP Profile - Restructure](http://localhost/development/projects/Working/OOP_Profile_Restructure/) => [Hosted](http://simplephp.atwebpages.com/)
    * username : carlos
    * password : 123
       
