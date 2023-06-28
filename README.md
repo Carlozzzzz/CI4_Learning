@@ -22,6 +22,8 @@
 
 6. [FETCH_JSON](http://localhost/development/practice/CI4_Learning/CI4_FETCH_JSON/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_FETCH_JSON)
 
+7. [LanguageTranslation](http://localhost/development/practice/CI4_Learning/CI4_LanguageTranslation/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_LanguageTranslation)
+
 ## Hosted
 
 1. [Simple Php](http://simplephp.atwebpages.com/) - [Server](https://cp1.awardspace.net/)
