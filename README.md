@@ -7,8 +7,11 @@
 1. [OOP Profile - Restructure](http://localhost/development/projects/Working/OOP_Profile_Restructure/) => [Hosted](http://simplephp.atwebpages.com/)
    * username : carlos
    * password : 123
+  
+## My Main Projects
+1. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
       
-## My Projects
+## My Mini Projects
    * username : admin
    * password : admin_abc123#
 1. [TodoList](http://localhost/development/practice/CI4_Learning/CI4_TodoList/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_TodoList)
