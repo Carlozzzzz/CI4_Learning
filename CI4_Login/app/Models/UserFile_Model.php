@@ -236,6 +236,10 @@ class UserFile_Model extends Model
                 $xretobj['bool'] = FALSE;
                 $xretobj['msg'] = $this->error();
             }
+
+            echo "<pre>";
+            var_dump($this->insert($xarr_param));
+            die();
         }
         
         return $xretobj;
