@@ -9,8 +9,10 @@
    * password : 123
   
 ## My Main Projects
-1. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
-   * C:\xampp\htdocs\development\projects\OLMS_Remake   
+1. [OLMS](http://localhost/development/projects/OLMS/admin/index.php) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
+   * C:\xampp\htdocs\development\projects\OLMS
+2. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
+   * C:\xampp\htdocs\development\projects\OLMS_Remake  
       
 ## My Mini Projects
    * username : admin
