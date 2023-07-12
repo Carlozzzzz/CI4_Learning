@@ -53,6 +53,8 @@
 ## Source Project
 
 1. [Hale](http://localhost/hale/SOURCE_Hale/) - [Repo](https://github.com/Carlozzzzz/SOURCE_Hale)
+   * C:\xampp\htdocs\hale\SOURCE_Hale
    
-2. [OnlineEnrollment](http://localhost/OnlineEnrollment-FinalVersion/SOURCE_OnlineEnrollment-FinalVersion/) - [Repo](https://github.com/Carlozzzzz/SOURCE_OnlineEnrollment-FinalVersion)
+3. [OnlineEnrollment](http://localhost/OnlineEnrollment-FinalVersion/SOURCE_OnlineEnrollment-FinalVersion/) - [Repo](https://github.com/Carlozzzzz/SOURCE_OnlineEnrollment-FinalVersion)
+   * C:\xampp\htdocs\OnlineEnrollment-FinalVersion\SOURCE_OnlineEnrollment-FinalVersion
 
