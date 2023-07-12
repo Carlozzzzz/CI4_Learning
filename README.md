@@ -49,3 +49,9 @@
 1. [COE - Presenter](http://localhost/webapp/MyCEA/presenter) -
    * username : carlos_test
    * password : 12345
+     
+## Source Project
+
+1. [Hale](http://localhost/hale/SOURCE_Hale/)
+   
+2. [OnlineEnrollment](http://localhost/OnlineEnrollment/)
