@@ -1,6 +1,13 @@
 # CI4_Learning
 
-[Adminer](http://localhost/adminer.php)
+[Adminer 8](http://localhost/adminer.php?username=root)
+[Adminer 5](http://localhost/adminer.php?username=vs.dev)
+
+## My Main Projects
+1. [OLMS](http://localhost/development/projects/OLMS/admin/index.php) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
+   * C:\xampp\htdocs\development\projects\OLMS
+2. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/adminfile) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
+   * C:\xampp\htdocs\development\projects\OLMS_Remake  
 
 ## Practice
 
@@ -8,11 +15,6 @@
    * username : carlos
    * password : 123
   
-## My Main Projects
-1. [OLMS](http://localhost/development/projects/OLMS/admin/index.php) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
-   * C:\xampp\htdocs\development\projects\OLMS
-2. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/adminfile) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
-   * C:\xampp\htdocs\development\projects\OLMS_Remake  
       
 ## My Mini Projects
    * username : admin
