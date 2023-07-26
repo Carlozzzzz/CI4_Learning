@@ -1,6 +1,6 @@
 # CI4_Learning
 
-[Adminer 8](http://localhost/adminer.php?username=root)
+[Adminer 8](http://localhost/adminer.php?username=root&db=olms_remake)
 
 [Adminer 5](http://localhost/adminer.php?username=vs.dev)
 
