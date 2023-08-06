@@ -52,6 +52,8 @@
 1. [COE - Presenter](http://localhost/webapp/MyCEA/presenter) -
    * username : carlos_test
    * password : 12345
+  
+2. [SWPSS - loca](http://localhost/SWPSS)
      
 ## Source Project
 
