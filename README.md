@@ -53,7 +53,7 @@
    * username : carlos_test
    * password : 12345
   
-2. [SWPSS - loca](http://localhost/SWPSS)
+2. [SWPSS - local](http://localhost/SWPSS)
      
 ## Source Project
 
