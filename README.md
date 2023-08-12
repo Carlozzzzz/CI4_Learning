@@ -12,8 +12,8 @@
 
 ## Practice
 
-1. [ProfileOOP - Repo](https://github.com/Carlozzzzz/PHP_proj_ProfileOOP)
-   [Localhost](http://localhost/development/projects/PHP_proj_ProfileOOP)
+1. [ProfileOOP - Repo](https://github.com/Carlozzzzz/PHP_proj_ProfileOOP) . 
+   [Localhost](http://localhost/development/projects/PHP_proj_ProfileOOP) .
    [Hosted](http://profileoop.atwebpages.com/index.php)
   <!-- HOST ACCOUNT
       link      =  https://www.awardspace.com/
