@@ -55,8 +55,8 @@
 
 ## Hosted
 
-1. [ProfileOOP](http://profileoop.atwebpages.com/) - [**Hosted**](https://cp1.awardspace.net/) - [Database]()
-   <!--
+1. [**awardspace**](https://cp1.awardspace.net/)
+   <!-- @cm12
       host      =  profileoop.atwebpages.com
       username  =  4358001_ProfileOOP
       password  =  babykosikulot05
