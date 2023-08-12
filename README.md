@@ -12,9 +12,20 @@
 
 ## Practice
 
-1. [OOP Profile - Restructure](http://localhost/development/projects/Working/OOP_Profile_Restructure/) => [Hosted](http://simplephp.atwebpages.com/)
-   * username : carlos
-   * password : 123
+1. [ProfileOOP - Repo](https://github.com/Carlozzzzz/PHP_proj_ProfileOOP)
+   [Localhost](http://localhost/development/projects/PHP_proj_ProfileOOP)
+   [Hosted](http://profileoop.atwebpages.com/index.php)
+  <!-- HOST ACCOUNT
+      link      =  https://www.awardspace.com/
+      host      =  profileoop.atwebpages.com
+      username  =  4358001_ProfileOOP
+      password  =  babykosikulot05
+    -->
+
+  <!-- WEBSITE SAMPLE ACCOUNT
+      username  =  carlos
+      password  =  123
+    -->
   
       
 ## My Mini Projects
