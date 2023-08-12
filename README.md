@@ -37,7 +37,11 @@
 ## Hosted
 
 1. [Simple Php](http://simplephp.atwebpages.com/) - [Server](https://cp1.awardspace.net/)
-   # profileoop.atwebpages.com -> ProfileOOP -> babykosikulot05
+   <!--
+      host      =  profileoop.atwebpages.com
+      username  =  4358001_ProfileOOP
+      password  =  babykosikulot05
+    -->
 
 
 ## Tutorials Projects
