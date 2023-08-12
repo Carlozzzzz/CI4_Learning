@@ -54,7 +54,7 @@
 
 ## Hosted
 
-1. [ProfileOOP](http://profileoop.atwebpages.com/) - [Server](https://cp1.awardspace.net/) - [Database]()
+1. [ProfileOOP](http://profileoop.atwebpages.com/) - [**Hosted**](https://cp1.awardspace.net/) - [Database]()
    <!--
       host      =  profileoop.atwebpages.com
       username  =  4358001_ProfileOOP
@@ -76,7 +76,7 @@
    * username : carlos_test
    * password : 12345
   
-2. [SWPSS - local](http://localhost/SWPSS)
+2. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**]
      
 ## Source Project
 
