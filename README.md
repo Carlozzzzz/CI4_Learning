@@ -36,7 +36,7 @@
 
 ## Hosted
 
-1. [Simple Php](http://simplephp.atwebpages.com/) - [Server](https://cp1.awardspace.net/)
+1. [ProfileOOP](http://profileoop.atwebpages.com/) - [Server](https://cp1.awardspace.net/) - [Database]()
    <!--
       host      =  profileoop.atwebpages.com
       username  =  4358001_ProfileOOP
