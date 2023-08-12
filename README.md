@@ -15,7 +15,7 @@
 1. [ProfileOOP - Repo](https://github.com/Carlozzzzz/PHP_proj_ProfileOOP) . 
    [Localhost](http://localhost/development/projects/PHP_proj_ProfileOOP) .
    [Hosted](http://profileoop.atwebpages.com/index.php)
-  <!-- HOST ACCOUNT
+  <!-- HOST ACCOUNT @cm12
       link      =  https://www.awardspace.com/
       username  =  "4358001_ooplogin"
       password  =  "4358001_ooplogin" 
