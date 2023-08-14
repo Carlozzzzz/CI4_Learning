@@ -78,7 +78,9 @@
    * password : 12345
   
 2. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
-     
+   **ADMIN**
+   * username : SWPSS
+   * password : TeXaS2017
 ## Source Project
 
 1. [Hale](http://localhost/hale/SOURCE_Hale/) - [Repo](https://github.com/Carlozzzzz/SOURCE_Hale)
