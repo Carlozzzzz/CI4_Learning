@@ -177,8 +177,8 @@
             });
         }
 
-			let imageAltText = 'Loading...';
-            imageAlt: imageAltText,
+			// let imageAltText = 'Loading...';
+            // imageAlt: imageAltText,
 
 
         getTranslatedSelectAccess('User added').then((msg) => {
@@ -210,8 +210,62 @@
             }
             swal.fire(dialogTitle, dialogText, 'error')
         });
+
+        getTranslatedSelectAccess('Cannot send empty message').then((msg) => {
+            toastr.info(msg);
+        });
     </script>
   
+    <!-- AJAX Request processing data -->
+    <!-- create test Controller and getTest function -->
+    <!-- $route['MyCEA/test/(.+)'] = 'test/$1'; -->
+    <script>
+        var ajaxFlag = false;
+        $(document).ready(function() {
+
+            function makeRequest() {
+                return new Promise(function(resolve, reject) {
+                    $.post("<?=$this->project_url.'/test/getTest'?>")
+                    .done(function(result) {
+                        result = JSON.parse(result);
+                        if (result) {
+                            console.log(result);
+                        } else {
+                            console.log("No response");
+                        }
+                        resolve(); 
+                    })
+                    .fail(function() {
+                        console.log("Error response");
+                        reject(); 
+                    });
+
+                });
+            }
+
+            var requestPromise = makeRequest();
+
+            requestPromise.then(function() {
+                testFunction();
+                ajaxFlag = true;
+            });
+
+            afterAjax(); 
+        });
+
+        function testFunction() {
+            console.log("Inside the ajax request");
+        }
+
+        function afterAjax() {
+            if(ajaxFlag) {
+                console.log("Success : afterAjax");
+            }
+            else{
+                setTimeout(afterAjax, 500);
+            }
+        }
+    </script>
    
 </body>
 
