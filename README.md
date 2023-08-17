@@ -12,7 +12,7 @@
    * C:\xampp\htdocs\development\projects\OLMS_Remake  
 
 ## Learning
-1. [JS_Learning](http://jspracticecarlos.atwebpages.com/) - [Repo](https://github.com/Carlozzzzz/JS_Learning)
+1. [JS_Learning](http://jspracticecarlos.atwebpages.com/) - [Local](http://localhost/development/practice/JS_Learning/Fundamentals/) - [Repo](https://github.com/Carlozzzzz/JS_Learning)
 2. 
 ## Practice
 
