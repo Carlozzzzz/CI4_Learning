@@ -61,8 +61,8 @@
 
 1. [**awardspace**](https://cp1.awardspace.net/)
    <!-- @cm12
-      host      =  profileoop.atwebpages.com
-      username  =  4358001_ProfileOOP
+      host      =  f28-preview.awardspace.net
+      username  =  4358001
       password  =  babykosikulot05
     -->
 
