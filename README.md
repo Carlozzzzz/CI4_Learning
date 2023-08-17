@@ -11,6 +11,9 @@
 2. [OLMS_Remake](http://localhost/development/projects/OLMS_Remake/public/admin) - [Repo](https://github.com/Carlozzzzz/OLMS_Remake)
    * C:\xampp\htdocs\development\projects\OLMS_Remake  
 
+## Learning
+1. [JS_Learning](http://jspracticecarlos.atwebpages.com/) - [Repo](https://github.com/Carlozzzzz/JS_Learning)
+2. 
 ## Practice
 
 1. [ProfileOOP - Repo](https://github.com/Carlozzzzz/PHP_proj_ProfileOOP) . 
