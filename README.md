@@ -1,7 +1,11 @@
 # Database
 
-[Adminer 8](http://localhost/adminer.php?username=root&db=olms_remake)
-   * root - root
+1. [Adminer 8](http://localhost/adminer.php?username=root&db=olms_remake)
+        **Database HOST** root @cm12
+        * username  :  root
+        * password  :  root
+3. [Adminer 5](http://localhost/adminer.php?username=vs.dev)
+       
 
 [Adminer 5](http://localhost/adminer.php?username=vs.dev)
    * vs.dev - Venisoft@2019
