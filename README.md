@@ -82,7 +82,7 @@
        * username : carlos_test
        * password : 12345
   
-3. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
+3. SWPSS - [**Repo**](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
    
        **ADMIN**
        * username : SWPSS
