@@ -20,24 +20,23 @@
    [Localhost](http://localhost/development/projects/PHP_proj_ProfileOOP) .
    [Hosted](http://profileoop.atwebpages.com/index.php)
    [Database](https://supportindeed.com/phpMyAdmin/index.php?server=1&xck=1085841902)
-  <!-- Database HOST
-      link      =  https://www.awardspace.com/
-      username  =  "4358001_ooplogin"
-      password  =  "4358001_ooplogin" 
-      host      =  "fdb1028.awardspace.net"
-      db_name   =  "4358001_ooplogin"
-    -->
- <!-- FTP HOST ACCOUNT @cm12
-    link      =  https://www.awardspace.com/
-    host      =  profileoop.atwebpages.com
-    username  =  4358001_ProfileOOP
-    password  =  babykosikulot05
-  -->
-
-  <!-- WEBSITE SAMPLE ACCOUNT
-      username  =  carlos
-      password  =  123
-    -->
+        
+        **Database HOST** root @cm12
+        * link      :  https://www.awardspace.com/
+        * host      :  f28-preview.awardspace.net
+        * db_name   :  4358001_ooplogin
+        * username  :  4358001_ooplogin
+        * password  :  4358001_ooplogin
+        
+        **FTP** ProfileOOP @cm12
+        * link      :  https://www.awardspace.com/
+        * host      :  profileoop.atwebpages.com
+        * username  :  4358001_ProfileOOP
+        * password  :  babykosikulot05
+        
+        **WEBSITE SAMPLE ACCOUNT** carlos
+        * username  :  carlos
+        * password  :  123
   
       
 ## My Mini Projects
