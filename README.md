@@ -60,11 +60,11 @@
 ## Hosted
 
 1. [**awardspace**](https://cp1.awardspace.net/)
-   <!-- @cm12
-      host      =  f28-preview.awardspace.net
-      username  =  4358001
-      password  =  babykosikulot05
-    -->
+   
+       **FTP** root @cm12
+       * host      :  f28-preview.awardspace.net
+       * username  :  4358001
+       * password  :  babykosikulot05
 
 
 ## Tutorials Projects
@@ -78,10 +78,12 @@
 ## Work
 
 1. COE_Presenter - [local](http://localhost/webapp/MyCEA/presenter) - [repo](https://github.com/YourConferenceLive/webapp)
-   * username : carlos_test
-   * password : 12345
+   
+       **ADMIN**
+       * username : carlos_test
+       * password : 12345
   
-2. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
+3. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
    
        **ADMIN**
        * username : SWPSS
