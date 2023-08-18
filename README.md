@@ -56,7 +56,7 @@
 
 7. [LanguageTranslation](http://localhost/development/practice/CI4_Learning/CI4_LanguageTranslation/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_LanguageTranslation)
 
-## Hosted
+## Hosting
 
 1. [**awardspace**](https://cp1.awardspace.net/)
    
