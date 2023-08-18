@@ -77,7 +77,7 @@
 
 ## Work
 
-1. COE_Presenter [local](http://localhost/webapp/MyCEA/presenter) - [repo](https://github.com/YourConferenceLive/webapp)
+1. COE_Presenter - [local](http://localhost/webapp/MyCEA/presenter) - [repo](https://github.com/YourConferenceLive/webapp)
    * username : carlos_test
    * password : 12345
   
