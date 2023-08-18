@@ -82,19 +82,20 @@
    * password : 12345
   
 2. [SWPSS - Repo](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
-   **ADMIN**
-   * username : SWPSS
-   * password : TeXaS2017
    
-   **FTP** _DEV_
-   * host      :  tbccom.com
-   * username  :  dev
-   * password  :  Msk5d3#3
-  
-   **FTP** _SWPSSDEV_
-   * host      :  tbccom.com
-   * username  :  swpss_dev
-   * password  :  7S?2byd44
+     **ADMIN**
+     * username : SWPSS
+     * password : TeXaS2017
+     
+     **FTP** _DEV_
+     * host      :  tbccom.com
+     * username  :  dev
+     * password  :  Msk5d3#3
+    
+     **FTP** _SWPSSDEV_
+     * host      :  tbccom.com
+     * username  :  swpss_dev
+     * password  :  7S?2byd44
 
 ## Source Project
 
