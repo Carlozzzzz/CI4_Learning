@@ -15,7 +15,7 @@
 
 ## Work
 
-1. COE_Presenter - [repo](https://github.com/YourConferenceLive/webapp)  
+1. COE_Presenter - [**Repository**](https://github.com/YourConferenceLive/webapp)  
    [Admin](http://localhost/webapp/MyCEA/admin)  
    [Presenter](http://localhost/webapp/MyCEA/presenter)  
    
@@ -23,7 +23,7 @@
        * username : carlos_test
        * password : 12345
   
-3. SWPSS - [**Repo**](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
+3. SWPSS - [**Repository**](https://github.com/Carlozzzzz/SWPSS) . [**Localhost**](http://localhost/SWPSS) . [**Hosted**](https://www.tbccom.com/SWPSS/)
    
        **ADMIN**
        * username : SWPSS
