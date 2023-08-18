@@ -15,7 +15,9 @@
 
 ## Work
 
-1. COE_Presenter - [local](http://localhost/webapp/MyCEA/presenter) - [repo](https://github.com/YourConferenceLive/webapp)
+1. COE_Presenter - [repo](https://github.com/YourConferenceLive/webapp)
+   [Admin](http://localhost/webapp/MyCEA/admin)
+   [Presenter](http://localhost/webapp/MyCEA/presenter)
    
        **ADMIN**
        * username : carlos_test
