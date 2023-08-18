@@ -1,4 +1,4 @@
-# CI4_Learning
+# Database
 
 [Adminer 8](http://localhost/adminer.php?username=root&db=olms_remake)
    * root - root
