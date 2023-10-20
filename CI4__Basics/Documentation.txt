@@ -1,0 +1,11 @@
+cideigniter_basic_website
+	- use of filter for authentication (login first)
+	- image upload
+	- validation
+	- return redirect
+	- csv tokens
+
+codeigniter_crud
+	- showcase the basic crud
+	- basic use of model, forms, mvc
+	- basic queries
