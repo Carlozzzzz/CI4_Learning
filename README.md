@@ -96,6 +96,8 @@
 
 8. [QuizApp](http://localhost/development/practice/Laravel9_Learning/__practice_project/QuizApp/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/QuizApp)
 
+9. [ItemChecker](http://localhost/development/practice/Laravel9_Learning/__practice_project/ItemChecker/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/ItemChecker)
+
 ## Hosting
 
 1. [**awardspace**](https://cp1.awardspace.net/)
