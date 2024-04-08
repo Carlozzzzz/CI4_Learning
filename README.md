@@ -94,6 +94,7 @@
 
 7. [LanguageTranslation](http://localhost/development/practice/CI4_Learning/CI4_LanguageTranslation/public/) - [Repo](https://github.com/Carlozzzzz/CI4_Learning/tree/main/CI4_LanguageTranslation)
 
+8. [QuizApp](http://localhost/development/practice/Laravel9_Learning/__practice_project/QuizApp/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/QuizApp)
 
 ## Hosting
 
