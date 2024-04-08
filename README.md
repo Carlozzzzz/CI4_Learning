@@ -96,7 +96,7 @@
 
 8. [QuizApp](http://localhost/development/practice/Laravel9_Learning/__practice_project/QuizApp/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/QuizApp)
 
-9. [ItemChecker](http://localhost/development/practice/Laravel9_Learning/__practice_project/ItemChecker/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/ItemChecker)
+9. [ItemChecker](http://127.0.0.1:8000/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/ItemChecker)
 
 ## Hosting
 
@@ -110,6 +110,7 @@
 
 ## Tutorials Projects
 
+1. [StartupLeaning](http://localhost/development/practice/Laravel9_Learning/__practice_project/ItemChecker/public/) - [Repo](https://github.com/Carlozzzzz/Laravel9_Learning/tree/main/__practice_project/ItemChecker)
 
 ## OJT
 
